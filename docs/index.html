@@ -1,556 +1,1169 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" itemscope itemtype="https://schema.org/SoftwareApplication">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo Budget — Задачи и Финансы</title>
-    <meta name="description" content="Бесплатное Android-приложение для управления задачами, бюджетом и продуктивностью. Без подписок, без платных функций.">
-    <meta name="theme-color" content="#603A91">
-    <meta property="og:title" content="Todo Budget — Задачи и Финансы">
-    <meta property="og:description" content="Бесплатное Android-приложение для управления задачами, бюджетом и продуктивностью.">
+
+    <!-- PRIMARY SEO -->
+    <title>Todo Budget — бесплатный планировщик задач и финансов для Android | Скачать APK</title>
+    <meta name="description" content="Todo Budget — бесплатное Android-приложение для управления задачами, бюджетом и продуктивностью. Помодоро-таймер, учёт финансов, заметки. Без подписок. Скачайте APK бесплатно.">
+    <meta name="keywords" content="todo budget, планировщик задач, учёт финансов, бюджет приложение, бесплатный планировщик, todo list, pomodoro, помодоро таймер, управление задачами, андроид приложение, скачать apk, трекер расходов, бесплатный бюджет, задачи и финансы, планировщик дел, расходы доходы, финансовый трекер">
+    <meta name="author" content="Emil Abdullin">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://emil-a-dev.github.io/todofin/">
+
+    <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://emil-a-dev.github.io/todofin/">
+    <meta property="og:title" content="Todo Budget — задачи и финансы в одном приложении">
+    <meta property="og:description" content="Бесплатный планировщик задач с учётом бюджета, помодоро-таймером и заметками. Без подписок. Всё для народа.">
+    <meta property="og:site_name" content="Todo Budget">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Todo Budget — бесплатный планировщик + бюджет">
+    <meta name="twitter:description" content="Задачи, финансы, помодоро — всё бесплатно. Скачай APK.">
+
+    <!-- SCHEMA.ORG -->
+    <meta itemprop="name" content="Todo Budget">
+    <meta itemprop="operatingSystem" content="Android 5.0+">
+    <meta itemprop="applicationCategory" content="ProductivityApplication">
+
+    <meta name="theme-color" content="#6C3AE0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- STRUCTURED DATA: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Todo Budget",
+        "alternateName": "Todo Budget: Задачи и Финансы",
+        "description": "Бесплатное Android-приложение для управления задачами, бюджетом и продуктивностью с помодоро-таймером и заметками.",
+        "url": "https://emil-a-dev.github.io/todofin/",
+        "downloadUrl": "https://github.com/emil-a-dev/todofin/releases/latest/download/TodoBudget-v3.0.apk",
+        "operatingSystem": "Android 5.0+",
+        "applicationCategory": "ProductivityApplication",
+        "fileSize": "9MB",
+        "softwareVersion": "3.0",
+        "datePublished": "2025-12-23",
+        "inLanguage": "ru",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RUB"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Emil Abdullin"
+        },
+        "featureList": [
+            "Управление задачами с приоритетами и подзадачами",
+            "Учёт доходов и расходов по категориям",
+            "Помодоро-таймер с настраиваемыми интервалами",
+            "Быстрые заметки с голосовым вводом",
+            "Виджет баланса на рабочем столе",
+            "Тёмная тема",
+            "Работа без интернета"
+        ]
+    }
+    </script>
+
+    <!-- STRUCTURED DATA: FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Безопасно ли устанавливать APK напрямую?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Да. APK подписан цифровой подписью разработчика и скачивается с GitHub. Все данные хранятся локально на вашем устройстве и не передаются на серверы."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Todo Budget действительно бесплатный?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Полностью. Никаких подписок, платных функций или внутренних покупок. Все возможности доступны сразу после установки."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Какие устройства поддерживаются?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Любые устройства на Android 5.0 (Lollipop) и выше. Размер APK — всего 9 МБ."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Мои данные куда-то отправляются?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Нет. Все задачи, финансы и заметки хранятся исключительно на вашем устройстве в зашифрованной базе данных."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Почему Todo Budget нет в Google Play?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Google требует пройти закрытое тестирование с 20 участниками на протяжении 14 дней. Мы предпочитаем давать доступ напрямую — быстрее и без посредников."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- STRUCTURED DATA: WebSite -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Todo Budget",
+        "url": "https://emil-a-dev.github.io/todofin/"
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #603A91;
-            --primary-light: #7E57C2;
-            --primary-dark: #4A1D78;
-            --accent: #E4CCFF;
-            --bg: #0A0A0F;
-            --bg-card: #15151F;
-            --bg-card-hover: #1E1E2E;
-            --text: #F0F0F5;
-            --text-muted: #9090A8;
-            --green: #4CAF50;
-            --red: #E53935;
-            --orange: #FFA726;
-            --blue: #42A5F5;
-            --radius: 16px;
-            --radius-sm: 10px;
+            --p: #6C3AE0;
+            --p2: #8B5CF6;
+            --p3: #A78BFA;
+            --p-glow: rgba(108, 58, 224, 0.35);
+            --acc: #00E5A0;
+            --acc2: #00C9FF;
+            --bg: #050510;
+            --bg2: #0C0C1D;
+            --bg3: #12122A;
+            --card: rgba(18, 18, 42, 0.6);
+            --card-border: rgba(108, 58, 224, 0.12);
+            --text: #EEEEF5;
+            --text2: #8B8BA8;
+            --text3: #5E5E7A;
+            --glow-green: rgba(0, 229, 160, 0.2);
+            --glow-blue: rgba(0, 201, 255, 0.2);
         }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; font-size: 16px; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.65;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* === ANIMATED BG === */
-        .bg-glow {
+        /* ═══════════ CANVAS BG ═══════════ */
+        #particles {
             position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 40%, rgba(96, 58, 145, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 60%, rgba(66, 165, 245, 0.05) 0%, transparent 50%);
-            pointer-events: none;
+            inset: 0;
             z-index: 0;
-            animation: glowShift 20s ease-in-out infinite;
+            pointer-events: none;
         }
 
-        @keyframes glowShift {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-5%, 5%); }
+        .noise {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 256px;
         }
 
-        /* === NAV === */
+        /* ═══════════ NAV ═══════════ */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            padding: 16px 24px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background: rgba(10, 10, 15, 0.7);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s;
+            z-index: 1000;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(24px) saturate(1.8);
+            -webkit-backdrop-filter: blur(24px) saturate(1.8);
+            background: rgba(5, 5, 16, 0.6);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        nav.scrolled {
-            padding: 10px 24px;
-            background: rgba(10, 10, 15, 0.9);
+        nav.solid {
+            background: rgba(5, 5, 16, 0.92);
+            box-shadow: 0 1px 30px rgba(0,0,0,0.3);
         }
 
-        .nav-inner {
-            max-width: 1100px;
+        .n-inner {
+            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .nav-logo {
+        .n-logo {
             font-weight: 800;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            letter-spacing: -0.02em;
         }
 
-        .nav-logo span {
-            background: linear-gradient(135deg, var(--primary-light), var(--blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .n-logo .icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--p), var(--acc));
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            font-size: 0.85rem;
         }
 
-        .nav-links {
+        .n-links {
             display: flex;
-            gap: 28px;
+            gap: 32px;
             list-style: none;
+            align-items: center;
         }
 
-        .nav-links a {
-            color: var(--text-muted);
+        .n-links a {
+            color: var(--text2);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 500;
-            transition: color 0.2s;
+            transition: color 0.25s;
         }
 
-        .nav-links a:hover { color: var(--text); }
+        .n-links a:hover { color: var(--text); }
 
-        /* === HERO === */
+        .n-cta {
+            padding: 8px 20px !important;
+            background: var(--p) !important;
+            color: #fff !important;
+            border-radius: 10px !important;
+            font-weight: 600 !important;
+            transition: all 0.25s !important;
+        }
+
+        .n-cta:hover {
+            background: var(--p2) !important;
+            box-shadow: 0 0 20px var(--p-glow) !important;
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .burger span {
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* ═══════════ HERO ═══════════ */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 24px 80px;
+            padding: 100px 24px 60px;
             position: relative;
             z-index: 1;
         }
 
-        .hero-content {
-            text-align: center;
-            max-width: 750px;
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            animation: orbFloat 15s ease-in-out infinite;
         }
 
-        .hero-badge {
+        .hero-orb-1 {
+            width: 500px; height: 500px;
+            background: var(--p-glow);
+            top: 10%; left: -10%;
+        }
+
+        .hero-orb-2 {
+            width: 400px; height: 400px;
+            background: var(--glow-green);
+            bottom: 10%; right: -5%;
+            animation-delay: -5s;
+        }
+
+        .hero-orb-3 {
+            width: 300px; height: 300px;
+            background: var(--glow-blue);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -10s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -20px) scale(1.05); }
+            66% { transform: translate(-20px, 15px) scale(0.95); }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 820px;
+            position: relative;
+        }
+
+        .hero-pill {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 16px;
-            background: rgba(96, 58, 145, 0.15);
-            border: 1px solid rgba(96, 58, 145, 0.3);
+            padding: 6px 18px 6px 8px;
+            background: rgba(108, 58, 224, 0.12);
+            border: 1px solid rgba(108, 58, 224, 0.25);
             border-radius: 100px;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 28px;
-            animation: fadeUp 0.6s ease-out;
+            color: var(--p3);
+            margin-bottom: 32px;
+            backdrop-filter: blur(8px);
+            animation: fadeSlideUp 0.7s ease-out;
         }
 
-        .hero-badge .dot {
-            width: 6px;
-            height: 6px;
-            background: var(--green);
+        .hero-pill .live {
+            width: 8px; height: 8px;
+            background: var(--acc);
             border-radius: 50%;
-            animation: pulse 2s infinite;
+            box-shadow: 0 0 8px var(--acc);
+            animation: livePulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+        @keyframes livePulse {
+            0%, 100% { box-shadow: 0 0 8px var(--acc); }
+            50% { box-shadow: 0 0 16px var(--acc), 0 0 32px rgba(0,229,160,0.3); }
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-size: clamp(2.6rem, 7vw, 4.5rem);
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            animation: fadeUp 0.6s ease-out 0.1s both;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            animation: fadeSlideUp 0.7s ease-out 0.1s both;
         }
 
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--primary-light), var(--blue), var(--accent));
+        .hero h1 .grad {
+            background: linear-gradient(135deg, var(--p2) 0%, var(--acc) 50%, var(--acc2) 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradShift 4s ease-in-out infinite;
         }
 
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 550px;
+        @keyframes gradShift {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            color: var(--text2);
+            max-width: 560px;
             margin: 0 auto 40px;
-            animation: fadeUp 0.6s ease-out 0.2s both;
+            animation: fadeSlideUp 0.7s ease-out 0.2s both;
         }
 
-        .hero-buttons {
+        .hero-actions {
             display: flex;
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeUp 0.6s ease-out 0.3s both;
+            animation: fadeSlideUp 0.7s ease-out 0.3s both;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 16px 32px;
+            padding: 16px 36px;
             border-radius: 14px;
             font-weight: 700;
             font-size: 1rem;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
             border: none;
             font-family: inherit;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            box-shadow: 0 4px 24px rgba(96, 58, 145, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(96, 58, 145, 0.5);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 48px;
-            justify-content: center;
-            margin-top: 60px;
-            animation: fadeUp 0.6s ease-out 0.4s both;
-        }
-
-        .hero-stat {
-            text-align: center;
-        }
-
-        .hero-stat .number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-light), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-stat .label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        /* === SECTIONS === */
-        section {
-            padding: 100px 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        /* === FEATURES === */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius);
-            padding: 32px;
-            transition: all 0.3s;
             position: relative;
             overflow: hidden;
         }
 
-        .feature-card::before {
+        .btn-glow {
+            background: linear-gradient(135deg, var(--p), var(--p2));
+            color: white;
+            box-shadow: 0 4px 24px var(--p-glow), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .btn-glow::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            background-size: 200% 100%;
+            animation: btnShine 3s ease-in-out infinite;
         }
 
-        .feature-card:hover {
-            background: var(--bg-card-hover);
-            border-color: rgba(96, 58, 145, 0.2);
-            transform: translateY(-4px);
+        @keyframes btnShine {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
         }
 
-        .feature-card:hover::before { opacity: 1; }
+        .btn-glow:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 40px var(--p-glow), 0 0 60px rgba(108, 58, 224, 0.15);
+        }
 
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: var(--radius-sm);
+        .btn-ghost {
+            background: rgba(255,255,255,0.04);
+            color: var(--text);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        .counter-strip {
+            display: flex;
+            gap: 48px;
+            justify-content: center;
+            margin-top: 64px;
+            animation: fadeSlideUp 0.7s ease-out 0.45s both;
+        }
+
+        .counter { text-align: center; }
+
+        .counter .num {
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: -0.02em;
+        }
+
+        .counter .num.purple { color: var(--p2); }
+        .counter .num.green { color: var(--acc); }
+        .counter .num.blue { color: var(--acc2); }
+
+        .counter .lbl {
+            font-size: 0.78rem;
+            color: var(--text3);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 500;
+        }
+
+        /* ═══════════ SOCIAL PROOF ═══════════ */
+        .proof {
+            padding: 40px 24px;
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            background: rgba(12, 12, 29, 0.5);
+        }
+
+        .proof-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .proof-items {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text2);
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .proof-item .emoji { font-size: 1.2rem; }
+
+        /* ═══════════ PROBLEM → SOLUTION ═══════════ */
+        .problem {
+            padding: 120px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .problem-inner { max-width: 1000px; margin: 0 auto; }
+
+        .problem-header { text-align: center; margin-bottom: 64px; }
+
+        .problem-header .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            background: rgba(229, 57, 53, 0.1);
+            border: 1px solid rgba(229, 57, 53, 0.2);
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #FF6B6B;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .problem-header h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .pain-col, .gain-col {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .pain-card, .gain-card {
+            padding: 20px 24px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .pain-card {
+            background: rgba(229, 57, 53, 0.06);
+            border: 1px solid rgba(229, 57, 53, 0.12);
+            color: var(--text2);
+        }
+
+        .gain-card {
+            background: rgba(0, 229, 160, 0.06);
+            border: 1px solid rgba(0, 229, 160, 0.12);
+            color: var(--text);
+        }
+
+        .pain-card .icon, .gain-card .icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .arrow-col {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 16px;
+            height: 100%;
+            min-height: 300px;
         }
 
-        .feature-icon.purple { background: rgba(96, 58, 145, 0.15); }
-        .feature-icon.green { background: rgba(76, 175, 80, 0.15); }
-        .feature-icon.blue { background: rgba(66, 165, 245, 0.15); }
-        .feature-icon.orange { background: rgba(255, 167, 38, 0.15); }
-        .feature-icon.red { background: rgba(229, 57, 53, 0.15); }
-        .feature-icon.teal { background: rgba(38, 166, 154, 0.15); }
+        .arrow-line {
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(229,57,53,0.3), var(--p), rgba(0,229,160,0.3));
+            position: relative;
+        }
 
-        .feature-card h3 {
+        .arrow-line::after {
+            content: '→';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg);
+            padding: 8px;
+            font-size: 1.5rem;
+            color: var(--p2);
+            border: 2px solid var(--p);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+        }
+
+        /* ═══════════ BENTO FEATURES ═══════════ */
+        .features {
+            padding: 120px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-inner { max-width: 1100px; margin: 0 auto; }
+
+        .sec-header { text-align: center; margin-bottom: 64px; }
+
+        .sec-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            background: rgba(108, 58, 224, 0.1);
+            border: 1px solid rgba(108, 58, 224, 0.2);
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--p3);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .sec-header h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .sec-header p {
+            color: var(--text2);
+            font-size: 1.08rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(200px, auto);
+            gap: 16px;
+        }
+
+        .bento-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(12px);
+        }
+
+        .bento-card:hover {
+            border-color: rgba(108, 58, 224, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 60px rgba(108, 58, 224, 0.06);
+        }
+
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(108,58,224,0.4), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .bento-card:hover::before { opacity: 1; }
+
+        .bento-wide { grid-column: span 2; }
+
+        .bento-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .bento-icon.i-purple { background: linear-gradient(135deg, rgba(108,58,224,0.2), rgba(139,92,246,0.1)); }
+        .bento-icon.i-green { background: linear-gradient(135deg, rgba(0,229,160,0.2), rgba(0,229,160,0.05)); }
+        .bento-icon.i-blue { background: linear-gradient(135deg, rgba(0,201,255,0.2), rgba(0,201,255,0.05)); }
+        .bento-icon.i-orange { background: linear-gradient(135deg, rgba(255,167,38,0.2), rgba(255,167,38,0.05)); }
+        .bento-icon.i-red { background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,107,107,0.05)); }
+        .bento-icon.i-teal { background: linear-gradient(135deg, rgba(38,166,154,0.2), rgba(38,166,154,0.05)); }
+
+        .bento-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .bento-card p {
+            color: var(--text2);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .bento-card .tag-list {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .mini-tag {
+            padding: 4px 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            font-size: 0.75rem;
+            color: var(--text2);
+            font-weight: 500;
+        }
+
+        .bento-mockup {
+            margin-top: 20px;
+            background: var(--bg);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text2);
+        }
+
+        .mockup-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .mockup-row:last-child { border-bottom: none; }
+
+        .mockup-check {
+            width: 18px; height: 18px;
+            border-radius: 5px;
+            border: 2px solid var(--text3);
+            display: grid;
+            place-items: center;
+            font-size: 0.65rem;
+            flex-shrink: 0;
+        }
+
+        .mockup-check.done {
+            background: var(--acc);
+            border-color: var(--acc);
+            color: var(--bg);
+        }
+
+        .mockup-pri {
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .pri-high { background: rgba(255,107,107,0.15); color: #FF6B6B; }
+        .pri-med { background: rgba(255,167,38,0.15); color: #FFA726; }
+        .pri-low { background: rgba(0,229,160,0.15); color: var(--acc); }
+
+        /* ═══════════ MANIFESTO ═══════════ */
+        .manifesto {
+            padding: 120px 24px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .manifesto::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(108,58,224,0.05), rgba(0,229,160,0.03));
+            border-top: 1px solid rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .manifesto-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+        }
+
+        .manifesto-text h2 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            line-height: 1.15;
+        }
+
+        .manifesto-text h2 .green { color: var(--acc); }
+
+        .manifesto-text > p {
+            color: var(--text2);
+            font-size: 1.05rem;
+            margin-bottom: 32px;
+        }
+
+        .manifesto-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .manifesto-list li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .manifesto-list .chk {
+            width: 28px; height: 28px;
+            border-radius: 8px;
+            background: rgba(0,229,160,0.1);
+            border: 1px solid rgba(0,229,160,0.2);
+            display: grid;
+            place-items: center;
+            color: var(--acc);
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .manifesto-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .manifesto-symbol {
+            width: 280px; height: 280px;
+            background: linear-gradient(135deg, var(--bg3), var(--bg2));
+            border-radius: 32px;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: grid;
+            place-items: center;
+            font-size: 9rem;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            animation: symbolFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes symbolFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .manifesto-symbol::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 34px;
+            background: linear-gradient(135deg, rgba(108,58,224,0.3), rgba(0,229,160,0.2));
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.5;
+        }
+
+        /* ═══════════ FAQ ═══════════ */
+        .faq {
+            padding: 120px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-inner { max-width: 700px; margin: 0 auto; }
+
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+        .faq-q {
+            width: 100%;
+            padding: 24px 0;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: color 0.2s;
+        }
+
+        .faq-q:hover { color: var(--p3); }
+
+        .faq-q .chevron {
+            width: 28px; height: 28px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.04);
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+            color: var(--text2);
+        }
+
+        .faq-item.open .faq-q .chevron {
+            background: rgba(108,58,224,0.15);
+            color: var(--p3);
+            transform: rotate(180deg);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .faq-item.open .faq-a { max-height: 200px; }
+
+        .faq-a p {
+            padding: 0 0 24px;
+            color: var(--text2);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ═══════════ CTA ═══════════ */
+        .cta {
+            padding: 120px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-card {
+            max-width: 750px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 28px;
+            padding: 72px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(16px);
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 400px;
+            background: radial-gradient(circle, var(--p-glow), transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-card h2 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cta-card > p {
+            color: var(--text2);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .cta-btn-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 48px;
+            background: linear-gradient(135deg, var(--p), var(--p2));
+            color: #fff;
+            border-radius: 16px;
             font-size: 1.15rem;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 6px 30px var(--p-glow);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.12) 50%, transparent 70%);
+            background-size: 200% 100%;
+            animation: btnShine 3s ease-in-out infinite;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 12px 50px var(--p-glow), 0 0 80px rgba(108,58,224,0.12);
+        }
+
+        .cta-sub {
+            font-size: 0.82rem;
+            color: var(--text3);
+        }
+
+        .cta-meta {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .cta-meta-item { text-align: center; }
+
+        .cta-meta-item .v {
+            font-weight: 800;
+            font-size: 1.1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .cta-meta-item .l {
+            font-size: 0.72rem;
+            color: var(--text3);
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ═══════════ INSTALL STEPS ═══════════ */
+        .install {
+            padding: 0 24px 120px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .install-inner { max-width: 900px; margin: 0 auto; }
+
+        .install-header { text-align: center; margin-bottom: 48px; }
+
+        .install-header h3 {
+            font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 8px;
         }
 
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        /* === PHILOSOPHY === */
-        .philosophy {
-            background: linear-gradient(135deg, rgba(96, 58, 145, 0.08), rgba(66, 165, 245, 0.05));
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        .philosophy-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .philosophy-text {
-            flex: 1;
-        }
-
-        .philosophy-text h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-        }
-
-        .philosophy-text h2 .gradient {
-            background: linear-gradient(135deg, var(--green), var(--blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .philosophy-text p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            margin-bottom: 12px;
-        }
-
-        .philosophy-list {
-            list-style: none;
-            margin-top: 24px;
-        }
-
-        .philosophy-list li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            font-size: 1rem;
-            color: var(--text);
-        }
-
-        .philosophy-list .check {
-            width: 24px;
-            height: 24px;
-            background: rgba(76, 175, 80, 0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            flex-shrink: 0;
-        }
-
-        .philosophy-visual {
-            flex: 0 0 320px;
-            height: 320px;
-            background: var(--bg-card);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .philosophy-visual::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(76, 175, 80, 0.1), transparent 70%);
-        }
-
-        /* === DOWNLOAD === */
-        .download {
-            text-align: center;
-        }
-
-        .download-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 60px 40px;
-            max-width: 650px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .download-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(96, 58, 145, 0.06) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .download-card h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-            position: relative;
-        }
-
-        .download-card p {
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            font-size: 1.05rem;
-            position: relative;
-        }
-
-        .download-info {
-            display: flex;
-            gap: 32px;
-            justify-content: center;
-            margin-top: 32px;
-            position: relative;
-        }
-
-        .download-info-item {
-            text-align: center;
-        }
-
-        .download-info-item .val {
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .download-info-item .lbl {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        /* === INSTALL GUIDE === */
-        .install-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .step {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius);
-            padding: 24px;
-            text-align: center;
-        }
-
-        .step-num {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 0.9rem;
-            margin: 0 auto 12px;
-        }
-
-        .step h4 {
+        .install-header p {
+            color: var(--text2);
             font-size: 0.95rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .step-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 28px 20px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s;
+        }
+
+        .step-card:hover {
+            border-color: rgba(108,58,224,0.25);
+            transform: translateY(-3px);
+        }
+
+        .step-n {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--p), var(--p2));
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            font-size: 1rem;
+            margin: 0 auto 14px;
+            box-shadow: 0 4px 16px var(--p-glow);
+        }
+
+        .step-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
             margin-bottom: 6px;
         }
 
-        .step p {
+        .step-card p {
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: var(--text2);
+            line-height: 1.5;
         }
 
-        /* === FOOTER === */
+        /* ═══════════ FOOTER ═══════════ */
         footer {
-            padding: 40px 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 32px 24px;
+            border-top: 1px solid rgba(255,255,255,0.04);
             position: relative;
             z-index: 1;
         }
 
-        .footer-inner {
-            max-width: 1100px;
+        .f-inner {
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -559,258 +1172,454 @@
             gap: 16px;
         }
 
-        .footer-left {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .f-copy {
+            font-size: 0.82rem;
+            color: var(--text3);
         }
 
-        .footer-links {
-            display: flex;
-            gap: 24px;
-        }
+        .f-links { display: flex; gap: 24px; }
 
-        .footer-links a {
-            color: var(--text-muted);
+        .f-links a {
+            color: var(--text3);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
+            font-weight: 500;
             transition: color 0.2s;
         }
 
-        .footer-links a:hover { color: var(--text); }
+        .f-links a:hover { color: var(--text2); }
 
-        /* === ANIMATIONS === */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
+        /* ═══════════ ANIMATIONS ═══════════ */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(24px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .fade-in {
+        .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease-out;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .fade-in.visible {
+        .reveal.vis {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* === MOBILE === */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero { padding: 100px 20px 60px; }
-            .hero-stats { gap: 24px; }
-            .hero-stat .number { font-size: 1.4rem; }
-            .philosophy-content { flex-direction: column; }
-            .philosophy-visual { flex: auto; width: 100%; height: 200px; font-size: 5rem; }
-            .features-grid { grid-template-columns: 1fr; }
-            .download-card { padding: 40px 24px; }
-            .download-info { gap: 20px; }
-            .footer-inner { flex-direction: column; text-align: center; }
+        /* ═══════════ MOBILE ═══════════ */
+        @media (max-width: 900px) {
+            .bento { grid-template-columns: 1fr; }
+            .bento-wide { grid-column: span 1; }
+            .problem-grid { grid-template-columns: 1fr; gap: 16px; }
+            .arrow-col { display: none; }
+            .manifesto-inner { grid-template-columns: 1fr; gap: 40px; }
+            .manifesto-visual { order: -1; }
+            .manifesto-symbol { width: 180px; height: 180px; font-size: 5rem; border-radius: 24px; }
+            .steps { grid-template-columns: 1fr 1fr; }
         }
 
-        /* === SCROLLBAR === */
-        ::-webkit-scrollbar { width: 6px; }
+        @media (max-width: 600px) {
+            .n-links { display: none; }
+            .burger { display: flex; }
+            .hero { padding: 90px 16px 40px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero .sub { font-size: 1rem; }
+            .counter-strip { gap: 24px; }
+            .counter .num { font-size: 1.4rem; }
+            .cta-card { padding: 48px 24px; }
+            .cta-card h2 { font-size: 1.8rem; }
+            .cta-meta { gap: 20px; }
+            .steps { grid-template-columns: 1fr; }
+            .f-inner { flex-direction: column; text-align: center; }
+            .manifesto-text h2 { font-size: 1.8rem; }
+            .sec-header h2, .problem-header h2 { font-size: 1.8rem; }
+            .proof-items { gap: 16px; }
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--primary-dark); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb { background: var(--p); border-radius: 3px; }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: rgba(5,5,16,0.95);
+            backdrop-filter: blur(24px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .mobile-menu.open { opacity: 1; pointer-events: all; }
+
+        .mobile-menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .mobile-menu .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 2rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-<div class="bg-glow"></div>
+<canvas id="particles"></canvas>
+<div class="noise"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" onclick="toggleMenu()">×</button>
+    <a href="#features" onclick="toggleMenu()">Возможности</a>
+    <a href="#manifesto" onclick="toggleMenu()">О проекте</a>
+    <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <a href="#download" onclick="toggleMenu()">Скачать</a>
+    <a href="privacy.html">Конфиденциальность</a>
+</div>
 
 <!-- NAV -->
 <nav id="nav">
-    <div class="nav-inner">
-        <a href="#" class="nav-logo">📋 <span>Todo Budget</span></a>
-        <ul class="nav-links">
+    <div class="n-inner">
+        <a href="#" class="n-logo">
+            <div class="icon">✓</div>
+            Todo Budget
+        </a>
+        <ul class="n-links">
             <li><a href="#features">Возможности</a></li>
-            <li><a href="#philosophy">О проекте</a></li>
-            <li><a href="#download">Скачать</a></li>
-            <li><a href="privacy.html">Конфиденциальность</a></li>
+            <li><a href="#manifesto">О проекте</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="privacy.html">Приватность</a></li>
+            <li><a href="#download" class="n-cta">Скачать</a></li>
         </ul>
+        <button class="burger" onclick="toggleMenu()" aria-label="Меню">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<header class="hero" id="hero">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+
     <div class="hero-content">
-        <div class="hero-badge">
-            <span class="dot"></span>
-            Версия 3.0 — Доступна
+        <div class="hero-pill">
+            <span class="live"></span>
+            v3.0 — бесплатно, навсегда
         </div>
-        <h1>Задачи и финансы<br><span class="gradient">в одном приложении</span></h1>
-        <p>Бесплатное Android-приложение для управления задачами, бюджетом и продуктивностью. Без подписок. Без платных функций. Всё для народа.</p>
-        <div class="hero-buttons">
-            <a href="https://github.com/emil-a-dev/todofin/releases/latest/download/TodoBudget-v3.0.apk" class="btn btn-primary">
+
+        <h1>Перестань терять деньги<br>и забывать задачи.<br><span class="grad">Начни управлять жизнью.</span></h1>
+
+        <p class="sub">Один инструмент для задач, бюджета, таймера и заметок.<br>9 МБ. Без подписок. Без регистрации. Просто скачай.</p>
+
+        <div class="hero-actions">
+            <a href="https://github.com/emil-a-dev/todofin/releases/latest/download/TodoBudget-v3.0.apk" class="btn btn-glow" aria-label="Скачать Todo Budget APK бесплатно">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Скачать бесплатно
+            </a>
+            <a href="#features" class="btn btn-ghost">Что внутри?</a>
+        </div>
+
+        <div class="counter-strip">
+            <div class="counter">
+                <div class="num purple">₽0</div>
+                <div class="lbl">Цена навсегда</div>
+            </div>
+            <div class="counter">
+                <div class="num green">9 МБ</div>
+                <div class="lbl">Размер</div>
+            </div>
+            <div class="counter">
+                <div class="num blue">5.0+</div>
+                <div class="lbl">Android</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- SOCIAL PROOF -->
+<div class="proof">
+    <div class="proof-inner">
+        <div class="proof-items">
+            <div class="proof-item"><span class="emoji">🔒</span> Данные только на устройстве</div>
+            <div class="proof-item"><span class="emoji">⚡</span> Работает без интернета</div>
+            <div class="proof-item"><span class="emoji">🚫</span> Ноль подписок</div>
+            <div class="proof-item"><span class="emoji">🪶</span> Лёгкий как перо</div>
+        </div>
+    </div>
+</div>
+
+<!-- PROBLEM → SOLUTION -->
+<section class="problem reveal" id="problem">
+    <div class="problem-inner">
+        <div class="problem-header">
+            <div class="tag">Знакомо?</div>
+            <h2>Хватит жонглировать десятью приложениями</h2>
+        </div>
+        <div class="problem-grid">
+            <div class="pain-col">
+                <div class="pain-card"><span class="icon">😩</span><div>Задачи в одном приложении, расходы в другом, таймер в третьем</div></div>
+                <div class="pain-card"><span class="icon">💸</span><div>Не понимаешь куда уходят деньги — а конец месяца уже близко</div></div>
+                <div class="pain-card"><span class="icon">🔔</span><div>Забываешь важные дела, потому что напоминалка — в голове</div></div>
+                <div class="pain-card"><span class="icon">💀</span><div>«Бесплатное» приложение просит ₽299/мес за базовые функции</div></div>
+            </div>
+            <div class="arrow-col"><div class="arrow-line"></div></div>
+            <div class="gain-col">
+                <div class="gain-card"><span class="icon">✅</span><div>Задачи, финансы, таймер и заметки — в одном месте</div></div>
+                <div class="gain-card"><span class="icon">📊</span><div>Видишь куда утекают деньги — графики, категории, тренды</div></div>
+                <div class="gain-card"><span class="icon">⏰</span><div>Точные напоминания — ни одна задача не потеряется</div></div>
+                <div class="gain-card"><span class="icon">☭</span><div>Всё бесплатно. Реально. Навсегда. Для каждого.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES BENTO -->
+<section class="features reveal" id="features">
+    <div class="features-inner">
+        <div class="sec-header">
+            <div class="sec-tag">Возможности</div>
+            <h2>Всё, что нужно. Ничего лишнего.</h2>
+            <p>Шесть модулей, ноль подписок</p>
+        </div>
+        <div class="bento">
+            <article class="bento-card bento-wide">
+                <div class="bento-icon i-purple">📋</div>
+                <h3>Умные задачи</h3>
+                <p>Приоритеты, подзадачи, повторяющиеся действия, свайп-жесты, поиск. Всё чтобы ничего не упустить.</p>
+                <div class="bento-mockup">
+                    <div class="mockup-row"><div class="mockup-check done">✓</div><span>Купить продукты</span><span class="mockup-pri pri-high">Высокий</span></div>
+                    <div class="mockup-row"><div class="mockup-check"></div><span>Оплатить интернет</span><span class="mockup-pri pri-med">Средний</span></div>
+                    <div class="mockup-row"><div class="mockup-check"></div><span>Позвонить маме</span><span class="mockup-pri pri-low">Низкий</span></div>
+                </div>
+            </article>
+            <article class="bento-card">
+                <div class="bento-icon i-green">💰</div>
+                <h3>Бюджет</h3>
+                <p>Доходы, расходы, долги, лимиты, снимки. Оценка здоровья финансов в одно касание.</p>
+                <div class="tag-list"><span class="mini-tag">Категории</span><span class="mini-tag">Лимиты</span><span class="mini-tag">Долги</span><span class="mini-tag">Графики</span></div>
+            </article>
+            <article class="bento-card">
+                <div class="bento-icon i-blue">⏱</div>
+                <h3>Помодоро</h3>
+                <p>Фокусировка с настраиваемым таймером. Статистика сессий за день и за всё время.</p>
+                <div class="tag-list"><span class="mini-tag">25/5 мин</span><span class="mini-tag">Статистика</span><span class="mini-tag">Кастомизация</span></div>
+            </article>
+            <article class="bento-card">
+                <div class="bento-icon i-orange">📝</div>
+                <h3>Заметки</h3>
+                <p>Быстрые заметки с голосовым вводом. Мысль пришла — записал за секунду.</p>
+            </article>
+            <article class="bento-card">
+                <div class="bento-icon i-red">📊</div>
+                <h3>Аналитика</h3>
+                <p>Куда утекают деньги? Графики расходов по категориям и дням покажут картину.</p>
+            </article>
+            <article class="bento-card">
+                <div class="bento-icon i-teal">📱</div>
+                <h3>Виджет + Тёмная тема</h3>
+                <p>Баланс прямо на рабочем столе. Тёмная тема по умолчанию. Экспорт данных.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto reveal" id="manifesto">
+    <div class="manifesto-inner">
+        <div class="manifesto-text">
+            <h2>Всё для <span class="green">народа</span>.<br>Не для прибыли.</h2>
+            <p>Мы считаем, что инструменты продуктивности — это базовая потребность, а не привилегия. Поэтому Todo Budget полностью бесплатен — без подвохов, без «премиум»-стен, без ограничений функций.</p>
+            <ul class="manifesto-list">
+                <li><span class="chk">✓</span> Ноль подписок — все функции открыты</li>
+                <li><span class="chk">✓</span> Данные хранятся только на вашем устройстве</li>
+                <li><span class="chk">✓</span> Работает полностью оффлайн</li>
+                <li><span class="chk">✓</span> 9 МБ — не забивает память</li>
+                <li><span class="chk">✓</span> Минимальные разрешения</li>
+            </ul>
+        </div>
+        <div class="manifesto-visual">
+            <div class="manifesto-symbol">☭</div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq reveal" id="faq">
+    <div class="faq-inner">
+        <div class="sec-header">
+            <div class="sec-tag">FAQ</div>
+            <h2>Частые вопросы</h2>
+        </div>
+
+        <div class="faq-item open">
+            <button class="faq-q" onclick="toggleFaq(this)">Безопасно ли устанавливать APK напрямую?<span class="chevron">▼</span></button>
+            <div class="faq-a"><p>Да. APK подписан цифровой подписью разработчика и скачивается с GitHub — крупнейшей платформы для разработчиков. Все данные хранятся локально на вашем устройстве и никуда не отправляются.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Приложение правда бесплатное?<span class="chevron">▼</span></button>
+            <div class="faq-a"><p>Полностью бесплатное. Никаких подписок, платных функций или внутренних покупок. Все возможности доступны сразу после установки. Есть только ненавязчивая реклама.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Какие устройства поддерживаются?<span class="chevron">▼</span></button>
+            <div class="faq-a"><p>Любые смартфоны и планшеты на Android 5.0 (Lollipop) и выше. Это 99% современных Android-устройств.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Мои данные куда-то отправляются?<span class="chevron">▼</span></button>
+            <div class="faq-a"><p>Нет. Все задачи, финансы и заметки хранятся исключительно на вашем устройстве в зашифрованной базе данных. Мы не собираем и не отправляем ваши персональные данные.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Почему нет в Google Play?<span class="chevron">▼</span></button>
+            <div class="faq-a"><p>Google требует пройти закрытое тестирование с 20 участниками на протяжении 14 дней. Мы предпочитаем давать доступ напрямую — быстрее, проще и без посредников.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta reveal" id="download">
+    <div class="cta-card">
+        <h2>Попробуй за 30 секунд</h2>
+        <p>Скачай, установи, начни управлять жизнью</p>
+        <div class="cta-btn-wrap">
+            <a href="https://github.com/emil-a-dev/todofin/releases/latest/download/TodoBudget-v3.0.apk" class="cta-btn" aria-label="Скачать Todo Budget APK">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Скачать APK
             </a>
-            <a href="#features" class="btn btn-outline">Узнать больше</a>
+            <span class="cta-sub">Android 5.0+ &bull; 9 МБ &bull; бесплатно навсегда</span>
         </div>
-        <div class="hero-stats">
-            <div class="hero-stat">
-                <div class="number">100%</div>
-                <div class="label">Бесплатно</div>
-            </div>
-            <div class="hero-stat">
-                <div class="number">9 МБ</div>
-                <div class="label">Размер APK</div>
-            </div>
-            <div class="hero-stat">
-                <div class="number">Android 5+</div>
-                <div class="label">Совместимость</div>
-            </div>
+        <div class="cta-meta">
+            <div class="cta-meta-item"><div class="v">v3.0</div><div class="l">Версия</div></div>
+            <div class="cta-meta-item"><div class="v">9 МБ</div><div class="l">Размер</div></div>
+            <div class="cta-meta-item"><div class="v">0 ₽</div><div class="l">Стоимость</div></div>
         </div>
     </div>
 </section>
 
-<!-- FEATURES -->
-<section id="features">
-    <div class="section-inner">
-        <div class="section-header fade-in">
-            <h2>Всё что нужно — внутри</h2>
-            <p>Управляйте задачами, финансами и временем из одного приложения</p>
+<!-- INSTALL STEPS -->
+<div class="install">
+    <div class="install-inner">
+        <div class="install-header">
+            <h3>Установка за 4 шага</h3>
+            <p>Даже бабушка справится</p>
         </div>
-        <div class="features-grid">
-            <div class="feature-card fade-in">
-                <div class="feature-icon purple">📋</div>
-                <h3>Умные задачи</h3>
-                <p>Приоритеты, подзадачи, повторяющиеся задачи. Свайп для быстрого завершения или удаления. Поиск по всем задачам.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon green">💰</div>
-                <h3>Бюджет и финансы</h3>
-                <p>Учёт доходов и расходов по категориям. Долги, лимиты, финансовые снимки. Оценка здоровья бюджета.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon blue">⏱</div>
-                <h3>Помодоро-таймер</h3>
-                <p>Фокусировка, перерывы, настраиваемые интервалы. Статистика сессий за день и за всё время.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon orange">📝</div>
-                <h3>Заметки</h3>
-                <p>Быстрые заметки с голосовым вводом. Всегда под рукой для мимолётных идей.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon red">📊</div>
-                <h3>Аналитика</h3>
-                <p>Графики расходов и доходов, категории, тренды по дням. Понимайте куда уходят деньги.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon teal">📱</div>
-                <h3>Виджет</h3>
-                <p>Баланс прямо на рабочем столе. Тёмная тема. Экспорт и бэкап данных.</p>
-            </div>
+        <div class="steps">
+            <div class="step-card reveal"><div class="step-n">1</div><h4>Скачай</h4><p>Нажми кнопку «Скачать APK»</p></div>
+            <div class="step-card reveal"><div class="step-n">2</div><h4>Разреши</h4><p>Настройки → Безопасность → Неизвестные источники</p></div>
+            <div class="step-card reveal"><div class="step-n">3</div><h4>Открой файл</h4><p>Найди APK в уведомлениях или «Загрузках»</p></div>
+            <div class="step-card reveal"><div class="step-n">4</div><h4>Установи</h4><p>Нажми «Установить» — готово!</p></div>
         </div>
     </div>
-</section>
-
-<!-- PHILOSOPHY -->
-<section id="philosophy" class="philosophy">
-    <div class="section-inner">
-        <div class="philosophy-content fade-in">
-            <div class="philosophy-text">
-                <h2>Всё для <span class="gradient">народа</span></h2>
-                <p>Мы верим, что базовые инструменты продуктивности должны быть доступны каждому. Без скрытых платежей, без «премиум»-версий, без ограничений.</p>
-                <p>Todo Budget — полностью бесплатное приложение с открытым функционалом.</p>
-                <ul class="philosophy-list">
-                    <li><span class="check">✓</span> Никаких подписок и платных функций</li>
-                    <li><span class="check">✓</span> Все данные хранятся локально на устройстве</li>
-                    <li><span class="check">✓</span> Работает без интернета (кроме рекламы)</li>
-                    <li><span class="check">✓</span> Минимальные разрешения</li>
-                    <li><span class="check">✓</span> Лёгкое приложение — всего 9 МБ</li>
-                </ul>
-            </div>
-            <div class="philosophy-visual">☭</div>
-        </div>
-    </div>
-</section>
-
-<!-- DOWNLOAD -->
-<section id="download" class="download">
-    <div class="section-inner">
-        <div class="download-card fade-in">
-            <h2>Скачать Todo Budget</h2>
-            <p>Установите приложение напрямую — быстро и безопасно</p>
-            <a href="https://github.com/emil-a-dev/todofin/releases/latest/download/TodoBudget-v3.0.apk" class="btn btn-primary" style="font-size:1.1rem; padding: 18px 40px;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Скачать APK (9 МБ)
-            </a>
-            <div class="download-info">
-                <div class="download-info-item">
-                    <div class="val">v3.0</div>
-                    <div class="lbl">Версия</div>
-                </div>
-                <div class="download-info-item">
-                    <div class="val">Android 5.0+</div>
-                    <div class="lbl">Требования</div>
-                </div>
-                <div class="download-info-item">
-                    <div class="val">9 МБ</div>
-                    <div class="lbl">Размер</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-header" style="margin-top: 60px; margin-bottom: 0;">
-            <h2>Как установить</h2>
-            <p>APK ставится за 30 секунд</p>
-        </div>
-        <div class="install-steps">
-            <div class="step fade-in">
-                <div class="step-num">1</div>
-                <h4>Скачайте</h4>
-                <p>Нажмите кнопку «Скачать APK» выше</p>
-            </div>
-            <div class="step fade-in">
-                <div class="step-num">2</div>
-                <h4>Разрешите установку</h4>
-                <p>Настройки → Безопасность → Неизвестные источники</p>
-            </div>
-            <div class="step fade-in">
-                <div class="step-num">3</div>
-                <h4>Откройте файл</h4>
-                <p>Найдите скачанный APK в уведомлениях или папке «Загрузки»</p>
-            </div>
-            <div class="step fade-in">
-                <div class="step-num">4</div>
-                <h4>Установите</h4>
-                <p>Нажмите «Установить» и дождитесь завершения</p>
-            </div>
-        </div>
-    </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer>
-    <div class="footer-inner">
-        <div class="footer-left">© 2026 Todo Budget. Всё для народа.</div>
-        <div class="footer-links">
+    <div class="f-inner">
+        <div class="f-copy">© 2026 Todo Budget. Всё для народа.</div>
+        <div class="f-links">
             <a href="privacy.html">Конфиденциальность</a>
             <a href="https://github.com/emil-a-dev/todofin/releases">Все версии</a>
-            <a href="mailto:emil.a.dev@gmail.com">Связаться</a>
         </div>
     </div>
 </footer>
 
 <script>
-    // Nav scroll effect
-    window.addEventListener('scroll', () => {
-        document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
-    });
+// ── Particles
+(function() {
+    const c = document.getElementById('particles');
+    const ctx = c.getContext('2d');
+    let W, H, particles = [];
 
-    // Fade in on scroll
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+    function resize() {
+        W = c.width = innerWidth;
+        H = c.height = innerHeight;
+    }
+
+    function init() {
+        particles = [];
+        const n = Math.min(60, Math.floor(W * H / 20000));
+        for (let i = 0; i < n; i++) {
+            particles.push({
+                x: Math.random() * W, y: Math.random() * H,
+                r: Math.random() * 1.5 + 0.5,
+                dx: (Math.random() - 0.5) * 0.3,
+                dy: (Math.random() - 0.5) * 0.3,
+                o: Math.random() * 0.3 + 0.05
+            });
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        for (const p of particles) {
+            p.x += p.dx; p.y += p.dy;
+            if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+            if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(108,58,224,${p.o})`;
+            ctx.fill();
+        }
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const d = Math.sqrt(dx*dx + dy*dy);
+                if (d < 150) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(108,58,224,${0.06*(1-d/150)})`;
+                    ctx.stroke();
+                }
             }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        }
+        requestAnimationFrame(draw);
+    }
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    resize(); init(); draw();
+    addEventListener('resize', () => { resize(); init(); });
+})();
+
+// ── Nav
+addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('solid', scrollY > 60);
+});
+
+// ── Reveal
+const obs = new IntersectionObserver(e => {
+    e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── FAQ
+function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+}
+
+// ── Mobile
+function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+}
 </script>
 
 </body>
