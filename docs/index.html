@@ -43,12 +43,12 @@
         "alternateName": "Todo Budget: Задачи и Финансы",
         "description": "Бесплатное Android-приложение для управления задачами, бюджетом и продуктивностью с помодоро-таймером и заметками.",
         "url": "https://emil-a-dev.github.io/todofin/",
-        "downloadUrl": "https://github.com/emil-a-dev/todofin/releases/latest/download/TodoBudget-v3.0.apk",
+        "downloadUrl": "https://github.com/emil-a-dev/todofin/releases/latest/download/TodoBudget-v4.0.apk",
         "operatingSystem": "Android 5.0+",
         "applicationCategory": "ProductivityApplication",
-        "fileSize": "9MB",
-        "softwareVersion": "3.0",
-        "datePublished": "2025-12-23",
+        "fileSize": "8.5MB",
+        "softwareVersion": "4.0",
+        "datePublished": "2026-02-24",
         "inLanguage": "ru",
         "offers": {
             "@type": "Offer",
@@ -60,12 +60,16 @@
             "name": "Emil Abdullin"
         },
         "featureList": [
-            "Управление задачами с приоритетами и подзадачами",
+            "Управление задачами с приоритетами, подзадачами и тегами",
             "Учёт доходов и расходов по категориям",
-            "Помодоро-таймер с настраиваемыми интервалами",
-            "Быстрые заметки с голосовым вводом",
-            "Виджет баланса на рабочем столе",
-            "Тёмная тема",
+            "Графики аналитики — круговая диаграмма и столбчатый график",
+            "Цели накоплений с прогрессом",
+            "Регулярные платежи",
+            "Помодоро-таймер с фоновым сервисом",
+            "Быстрые заметки с голосовым вводом и поиском",
+            "PIN-код для защиты приложения",
+            "Виджет с балансом и задачами на рабочем столе",
+            "Тёмная/светлая тема",
             "Работа без интернета"
         ]
     }
@@ -98,7 +102,7 @@
                 "name": "Какие устройства поддерживаются?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Любые устройства на Android 5.0 (Lollipop) и выше. Размер APK — всего 9 МБ."
+                    "text": "Любые устройства на Android 5.0 (Lollipop) и выше. Размер APK — всего 8.5 МБ."
                 }
             },
             {
@@ -1322,15 +1326,15 @@
     <div class="hero-content">
         <div class="hero-pill">
             <span class="live"></span>
-            v3.0 — бесплатно, навсегда
+            v4.0 — бесплатно, навсегда
         </div>
 
         <h1>Перестань терять деньги<br>и забывать задачи.<br><span class="grad">Начни управлять жизнью.</span></h1>
 
-        <p class="sub">Один инструмент для задач, бюджета, таймера и заметок.<br>9 МБ. Без подписок. Без регистрации. Просто скачай.</p>
+        <p class="sub">Один инструмент для задач, бюджета, таймера и заметок.<br>8.5 МБ. Без подписок. Без регистрации. Просто скачай.</p>
 
         <div class="hero-actions">
-            <a href="https://github.com/emil-a-dev/todofin/releases/latest/download/TodoBudget-v3.0.apk" class="btn btn-glow" aria-label="Скачать Todo Budget APK бесплатно">
+            <a href="https://github.com/emil-a-dev/todofin/releases/latest/download/TodoBudget-v4.0.apk" class="btn btn-glow" aria-label="Скачать Todo Budget APK бесплатно">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Скачать бесплатно
             </a>
@@ -1343,7 +1347,7 @@
                 <div class="lbl">Цена навсегда</div>
             </div>
             <div class="counter">
-                <div class="num green">9 МБ</div>
+                <div class="num green">8.5 МБ</div>
                 <div class="lbl">Размер</div>
             </div>
             <div class="counter">
@@ -1397,13 +1401,13 @@
         <div class="sec-header">
             <div class="sec-tag">Возможности</div>
             <h2>Всё, что нужно. Ничего лишнего.</h2>
-            <p>Шесть модулей, ноль подписок</p>
+            <p>Десять модулей, ноль подписок</p>
         </div>
         <div class="bento">
             <article class="bento-card bento-wide">
                 <div class="bento-icon i-purple">📋</div>
                 <h3>Умные задачи</h3>
-                <p>Приоритеты, подзадачи, повторяющиеся действия, свайп-жесты, поиск. Всё чтобы ничего не упустить.</p>
+                <p>Приоритеты, подзадачи, теги, повторяющиеся действия, свайп-жесты, отмена удаления. Всё чтобы ничего не упустить.</p>
                 <div class="bento-mockup">
                     <div class="mockup-row"><div class="mockup-check done">✓</div><span>Купить продукты</span><span class="mockup-pri pri-high">Высокий</span></div>
                     <div class="mockup-row"><div class="mockup-check"></div><span>Оплатить интернет</span><span class="mockup-pri pri-med">Средний</span></div>
@@ -1414,28 +1418,48 @@
                 <div class="bento-icon i-green">💰</div>
                 <h3>Бюджет</h3>
                 <p>Доходы, расходы, долги, лимиты, снимки. Оценка здоровья финансов в одно касание.</p>
-                <div class="tag-list"><span class="mini-tag">Категории</span><span class="mini-tag">Лимиты</span><span class="mini-tag">Долги</span><span class="mini-tag">Графики</span></div>
+                <div class="tag-list"><span class="mini-tag">Категории</span><span class="mini-tag">Лимиты</span><span class="mini-tag">Долги</span><span class="mini-tag">Графики</span><span class="mini-tag">Цели</span><span class="mini-tag">Регулярные</span></div>
             </article>
             <article class="bento-card">
                 <div class="bento-icon i-blue">⏱</div>
                 <h3>Помодоро</h3>
-                <p>Фокусировка с настраиваемым таймером. Статистика сессий за день и за всё время.</p>
-                <div class="tag-list"><span class="mini-tag">25/5 мин</span><span class="mini-tag">Статистика</span><span class="mini-tag">Кастомизация</span></div>
+                <p>Фокусировка с настраиваемым таймером. Работает в фоне с уведомлением. Статистика сессий.</p>
+                <div class="tag-list"><span class="mini-tag">25/5 мин</span><span class="mini-tag">Фоновый сервис</span><span class="mini-tag">Статистика</span></div>
             </article>
             <article class="bento-card">
                 <div class="bento-icon i-orange">📝</div>
                 <h3>Заметки</h3>
-                <p>Быстрые заметки с голосовым вводом. Мысль пришла — записал за секунду.</p>
+                <p>Быстрые заметки с голосовым вводом и поиском. Мысль пришла — записал за секунду.</p>
             </article>
             <article class="bento-card">
                 <div class="bento-icon i-red">📊</div>
                 <h3>Аналитика</h3>
-                <p>Куда утекают деньги? Графики расходов по категориям и дням покажут картину.</p>
+                <p>Куда утекают деньги? Круговая диаграмма расходов и столбчатый график доходов/расходов покажут картину.</p>
             </article>
             <article class="bento-card">
                 <div class="bento-icon i-teal">📱</div>
                 <h3>Виджет + Тёмная тема</h3>
-                <p>Баланс прямо на рабочем столе. Тёмная тема по умолчанию. Экспорт данных.</p>
+                <p>Баланс и задачи на рабочем столе. Тёмная тема по умолчанию. Экспорт данных.</p>
+            </article>
+            <article class="bento-card">
+                <div class="bento-icon i-red">🔒</div>
+                <h3>PIN-код</h3>
+                <p>Защитите данные PIN-кодом при запуске. Финансы — дело интимное.</p>
+            </article>
+            <article class="bento-card">
+                <div class="bento-icon i-green">🎯</div>
+                <h3>Цели накоплений</h3>
+                <p>Создавайте цели, пополняйте копилку. Прогресс-бар покажет сколько осталось.</p>
+            </article>
+            <article class="bento-card">
+                <div class="bento-icon i-blue">🔄</div>
+                <h3>Регулярные платежи</h3>
+                <p>Подписки, аренда, зарплата — всё под контролем. Ежедневно, еженедельно, ежемесячно.</p>
+            </article>
+            <article class="bento-card">
+                <div class="bento-icon i-purple">🏷️</div>
+                <h3>Теги задач</h3>
+                <p>Организуйте задачи тегами: «работа», «дом», «важное». Быстрый обзор.</p>
             </article>
         </div>
     </div>
@@ -1451,7 +1475,7 @@
                 <li><span class="chk">✓</span> Ноль подписок — все функции открыты</li>
                 <li><span class="chk">✓</span> Данные хранятся только на вашем устройстве</li>
                 <li><span class="chk">✓</span> Работает полностью оффлайн</li>
-                <li><span class="chk">✓</span> 9 МБ — не забивает память</li>
+                <li><span class="chk">✓</span> 8.5 МБ — не забивает память</li>
                 <li><span class="chk">✓</span> Минимальные разрешения</li>
             </ul>
         </div>
@@ -1498,15 +1522,15 @@
         <h2>Попробуй за 30 секунд</h2>
         <p>Скачай, установи, начни управлять жизнью</p>
         <div class="cta-btn-wrap">
-            <a href="https://github.com/emil-a-dev/todofin/releases/latest/download/TodoBudget-v3.0.apk" class="cta-btn" aria-label="Скачать Todo Budget APK">
+            <a href="https://github.com/emil-a-dev/todofin/releases/latest/download/TodoBudget-v4.0.apk" class="cta-btn" aria-label="Скачать Todo Budget APK">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Скачать APK
             </a>
-            <span class="cta-sub">Android 5.0+ &bull; 9 МБ &bull; бесплатно навсегда</span>
+            <span class="cta-sub">Android 5.0+ &bull; 8.5 МБ &bull; бесплатно навсегда</span>
         </div>
         <div class="cta-meta">
-            <div class="cta-meta-item"><div class="v">v3.0</div><div class="l">Версия</div></div>
-            <div class="cta-meta-item"><div class="v">9 МБ</div><div class="l">Размер</div></div>
+            <div class="cta-meta-item"><div class="v">v4.0</div><div class="l">Версия</div></div>
+            <div class="cta-meta-item"><div class="v">8.5 МБ</div><div class="l">Размер</div></div>
             <div class="cta-meta-item"><div class="v">0 ₽</div><div class="l">Стоимость</div></div>
         </div>
     </div>
