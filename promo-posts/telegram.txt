@@ -1,0 +1,41 @@
+Каналы для публикации:
+- @FreeAndroidApps — бесплатные Android-приложения
+- @app_sales_hub — скидки и бесплатные приложения
+- @aplikacia — обзоры приложений
+- @android_apps_ru — Android приложения
+- @bestfreeapps — лучшие бесплатные приложения
+- @android_dev_ru, @kotlin_lang_ru — чаты разработчиков
+
+===== ПОСТ ДЛЯ КАНАЛОВ ПРИЛОЖЕНИЙ =====
+
+📱 Todo Budget — бесплатный планировщик задач + бюджет + помодоро
+
+Выложил в RuStore полностью бесплатное Android-приложение. Задачи, финансы, помодоро-таймер и заметки — в одном месте. 9 МБ, работает оффлайн.
+
+Ноль подписок. Ноль платных функций. Данные хранятся только на устройстве.
+
+✅ Задачи — приоритеты, подзадачи, свайпы, повторяющиеся, напоминания
+💰 Бюджет — расходы/доходы, лимиты, долги, графики, виджет баланса
+⏱ Помодоро-таймер — настраиваемые сессии, статистика
+📝 Заметки — текст + голосовой ввод
+
+📲 RuStore: https://apps.rustore.ru/app/ru.todobudget.todo
+🌐 Сайт: https://emil-a-dev.github.io/todofin/
+📦 APK (9 МБ): https://github.com/emil-a-dev/todofin/releases/download/v3.0/TodoBudget-v3.0.apk
+
+#android #бесплатно #todo #бюджет #помодоро #планировщик #rustore
+
+===== ПОСТ ДЛЯ ЧАТОВ РАЗРАБОТЧИКОВ =====
+
+👋 Привет! Выложил в RuStore своё Android-приложение — Todo Budget.
+
+Это всё-в-одном: задачи + финансы + помодоро + заметки. Полностью бесплатное, без подписок и in-app покупок.
+
+Стек: Kotlin, Jetpack Compose, Material 3, Room, DataStore. APK — 9 МБ после R8. Min SDK 21, Target 35.
+
+Буду рад обратной связи — что можно улучшить, что добавить.
+
+📲 RuStore: https://apps.rustore.ru/app/ru.todobudget.todo
+🌐 Сайт: https://emil-a-dev.github.io/todofin/
+
+#kotlin #android #jetpackcompose #rustore

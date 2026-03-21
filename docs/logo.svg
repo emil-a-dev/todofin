@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Main gradient: deep purple → purple → green → light green -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" style="stop-color:#5826C8"/>
+      <stop offset="35%" style="stop-color:#6C3AE0"/>
+      <stop offset="70%" style="stop-color:#00E5A0"/>
+      <stop offset="100%" style="stop-color:#64FFC8"/>
+    </linearGradient>
+
+    <!-- Glass highlight gradient -->
+    <radialGradient id="glass" cx="35%" cy="25%" r="50%" fx="30%" fy="20%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.22)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0)"/>
+    </radialGradient>
+
+    <!-- Outer glow -->
+    <filter id="glow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Checkmark shadow -->
+    <filter id="check-shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="rgba(0,0,0,0.2)"/>
+    </filter>
+
+    <!-- Spark glow -->
+    <filter id="spark-glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Squircle (superellipse) clip -->
+    <clipPath id="squircle">
+      <path d="M256,8 C410,8 504,8 504,102 C504,196 504,256 504,256 C504,316 504,410 504,410 C504,504 410,504 256,504 C102,504 8,504 8,410 C8,316 8,256 8,256 C8,196 8,102 8,102 C8,8 102,8 256,8 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background squircle with gradient -->
+  <g clip-path="url(#squircle)" filter="url(#glow)">
+    <rect x="0" y="0" width="512" height="512" fill="url(#bg-grad)"/>
+
+    <!-- Glass highlight -->
+    <ellipse cx="190" cy="130" rx="180" ry="100" fill="url(#glass)"/>
+  </g>
+
+  <!-- Coin ring (subtle) -->
+  <circle cx="256" cy="246" r="160" fill="none" stroke="rgba(255,255,255,0.15)"
+          stroke-width="4" stroke-dasharray="580 200" stroke-linecap="round"
+          clip-path="url(#squircle)"/>
+
+  <!-- Checkmark -->
+  <g clip-path="url(#squircle)" filter="url(#check-shadow)">
+    <polyline points="146,248 232,348 390,142"
+              fill="none" stroke="white" stroke-width="42"
+              stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Spark at checkmark tip -->
+  <g clip-path="url(#squircle)" filter="url(#spark-glow)">
+    <!-- 4-pointed star -->
+    <polygon points="395,128 399,136 407,136 401,142 403,150 395,146 387,150 389,142 383,136 391,136"
+             fill="white" opacity="0.85"/>
+    <!-- Center glow dot -->
+    <circle cx="395" cy="138" r="5" fill="white" opacity="0.5"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050510"/>
+      <stop offset="100%" style="stop-color:#0a0a1f"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="15" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+  <circle cx="540" cy="960" r="300" fill="#6C3AE0" opacity="0.06"/>
+
+  <text x="540" y="880" text-anchor="middle" font-family="system-ui, sans-serif" font-size="48" fill="#666688">А что, если...</text>
+  <text x="540" y="1020" text-anchor="middle" font-family="system-ui, sans-serif" font-size="80" font-weight="bold" fill="#fff" filter="url(#glow)">всё это</text>
+  <text x="540" y="1130" text-anchor="middle" font-family="system-ui, sans-serif" font-size="80" font-weight="bold" fill="#6C3AE0" filter="url(#glow)">в одном?</text>
+</svg>

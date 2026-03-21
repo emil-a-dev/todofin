@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="50%" style="stop-color:#16213e"/>
+      <stop offset="100%" style="stop-color:#0f3460"/>
+    </linearGradient>
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C3AE0"/>
+      <stop offset="100%" style="stop-color:#00C9FF"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00E5A0"/>
+      <stop offset="100%" style="stop-color:#00C9FF"/>
+    </linearGradient>
+    <linearGradient id="accent3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B"/>
+      <stop offset="100%" style="stop-color:#FFB347"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="1100" cy="100" r="200" fill="#6C3AE0" opacity="0.08"/>
+  <circle cx="180" cy="540" r="150" fill="#00C9FF" opacity="0.06"/>
+  <circle cx="900" cy="500" r="120" fill="#00E5A0" opacity="0.05"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.03" stroke="#fff" stroke-width="1">
+    <line x1="0" y1="80" x2="1280" y2="80"/>
+    <line x1="0" y1="160" x2="1280" y2="160"/>
+    <line x1="0" y1="240" x2="1280" y2="240"/>
+    <line x1="0" y1="320" x2="1280" y2="320"/>
+    <line x1="0" y1="400" x2="1280" y2="400"/>
+    <line x1="0" y1="480" x2="1280" y2="480"/>
+    <line x1="0" y1="560" x2="1280" y2="560"/>
+    <line x1="160" y1="0" x2="160" y2="640"/>
+    <line x1="320" y1="0" x2="320" y2="640"/>
+    <line x1="480" y1="0" x2="480" y2="640"/>
+    <line x1="640" y1="0" x2="640" y2="640"/>
+    <line x1="800" y1="0" x2="800" y2="640"/>
+    <line x1="960" y1="0" x2="960" y2="640"/>
+    <line x1="1120" y1="0" x2="1120" y2="640"/>
+  </g>
+
+  <!-- LEFT SIDE: Text content -->
+
+  <!-- Title -->
+  <text x="80" y="160" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="48" font-weight="bold" fill="#ffffff" letter-spacing="-1">
+    Todo Budget
+  </text>
+
+  <!-- Subtitle line 1 -->
+  <text x="80" y="220" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="24" fill="#a0a0c0">
+    Бесплатное приложение для задач и финансов
+  </text>
+
+  <!-- Divider line -->
+  <rect x="80" y="248" width="120" height="3" rx="2" fill="url(#accent1)"/>
+
+  <!-- Feature pills -->
+  <!-- Tasks pill -->
+  <rect x="80" y="280" width="140" height="40" rx="20" fill="#6C3AE0" opacity="0.2" stroke="#6C3AE0" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="110" y="306" font-family="system-ui, sans-serif" font-size="16" fill="#B8A0FF">✅ Задачи</text>
+
+  <!-- Budget pill -->
+  <rect x="235" y="280" width="140" height="40" rx="20" fill="#00E5A0" opacity="0.15" stroke="#00E5A0" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="265" y="306" font-family="system-ui, sans-serif" font-size="16" fill="#00E5A0">💰 Бюджет</text>
+
+  <!-- Pomodoro pill -->
+  <rect x="80" y="332" width="165" height="40" rx="20" fill="#FF6B6B" opacity="0.15" stroke="#FF6B6B" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="108" y="358" font-family="system-ui, sans-serif" font-size="16" fill="#FF8A8A">⏱ Помодоро</text>
+
+  <!-- Notes pill -->
+  <rect x="260" y="332" width="155" height="40" rx="20" fill="#00C9FF" opacity="0.15" stroke="#00C9FF" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="288" y="358" font-family="system-ui, sans-serif" font-size="16" fill="#00C9FF">📝 Заметки</text>
+
+  <!-- Key stats -->
+  <text x="80" y="425" font-family="system-ui, sans-serif" font-size="18" fill="#666688">
+    <tspan fill="#00E5A0" font-weight="bold">9 МБ</tspan>
+    <tspan fill="#444466"> · </tspan>
+    <tspan fill="#00C9FF" font-weight="bold">Бесплатно</tspan>
+    <tspan fill="#444466"> · </tspan>
+    <tspan fill="#FF6B6B" font-weight="bold">Оффлайн</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="80" y="470" font-family="system-ui, sans-serif" font-size="15" fill="#555577" font-style="italic">
+    «Как я сделал бесплатное приложение —
+  </text>
+  <text x="80" y="495" font-family="system-ui, sans-serif" font-size="15" fill="#555577" font-style="italic">
+    и почему не взял ни копейки»
+  </text>
+
+  <!-- Tech stack badges -->
+  <rect x="80" y="530" width="70" height="28" rx="6" fill="#7F52FF" opacity="0.25"/>
+  <text x="94" y="549" font-family="monospace" font-size="12" fill="#B8A0FF">Kotlin</text>
+
+  <rect x="160" y="530" width="110" height="28" rx="6" fill="#00C9FF" opacity="0.15"/>
+  <text x="172" y="549" font-family="monospace" font-size="12" fill="#00C9FF">Compose</text>
+
+  <rect x="280" y="530" width="58" height="28" rx="6" fill="#00E5A0" opacity="0.15"/>
+  <text x="290" y="549" font-family="monospace" font-size="12" fill="#00E5A0">Room</text>
+
+  <rect x="348" y="530" width="100" height="28" rx="6" fill="#FFB347" opacity="0.15"/>
+  <text x="360" y="549" font-family="monospace" font-size="12" fill="#FFB347">Material 3</text>
+
+  <!-- RIGHT SIDE: Phone mockup -->
+  <g transform="translate(720, 60)" filter="url(#shadow)">
+    <!-- Phone outer frame -->
+    <rect x="0" y="0" width="280" height="520" rx="36" fill="#1e1e30" stroke="#333355" stroke-width="2"/>
+
+    <!-- Screen -->
+    <rect x="12" y="12" width="256" height="496" rx="28" fill="#121220"/>
+
+    <!-- Status bar -->
+    <rect x="12" y="12" width="256" height="40" rx="28" fill="#1a1a2e"/>
+    <text x="30" y="38" font-family="monospace" font-size="12" fill="#666">9:41</text>
+    <text x="224" y="38" font-family="monospace" font-size="12" fill="#666">100%</text>
+
+    <!-- App header -->
+    <rect x="12" y="52" width="256" height="56" fill="#1a1a2e"/>
+    <text x="30" y="88" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#fff">Todo Budget</text>
+
+    <!-- Navigation tabs -->
+    <rect x="24" y="115" width="56" height="28" rx="14" fill="#6C3AE0"/>
+    <text x="33" y="134" font-family="system-ui, sans-serif" font-size="11" fill="#fff">Задачи</text>
+
+    <rect x="88" y="115" width="60" height="28" rx="14" fill="#2a2a40"/>
+    <text x="95" y="134" font-family="system-ui, sans-serif" font-size="11" fill="#888">Бюджет</text>
+
+    <rect x="156" y="115" width="50" height="28" rx="14" fill="#2a2a40"/>
+    <text x="161" y="134" font-family="system-ui, sans-serif" font-size="11" fill="#888">Фокус</text>
+
+    <rect x="214" y="115" width="42" height="28" rx="14" fill="#2a2a40"/>
+    <text x="219" y="134" font-family="system-ui, sans-serif" font-size="11" fill="#888">ещё</text>
+
+    <!-- Task item 1 -->
+    <rect x="24" y="158" width="232" height="56" rx="12" fill="#222240"/>
+    <circle cx="44" cy="186" r="10" fill="none" stroke="#6C3AE0" stroke-width="2"/>
+    <text x="64" y="182" font-family="system-ui, sans-serif" font-size="13" fill="#e0e0e0">Купить продукты</text>
+    <text x="64" y="198" font-family="system-ui, sans-serif" font-size="10" fill="#666">Сегодня, 18:00</text>
+    <rect x="220" y="176" width="24" height="6" rx="3" fill="#FF6B6B"/>
+
+    <!-- Task item 2 (completed) -->
+    <rect x="24" y="222" width="232" height="56" rx="12" fill="#222240" opacity="0.6"/>
+    <circle cx="44" cy="250" r="10" fill="#00E5A0" opacity="0.3"/>
+    <text x="36" y="254" font-family="system-ui, sans-serif" font-size="14" fill="#00E5A0">✓</text>
+    <text x="64" y="246" font-family="system-ui, sans-serif" font-size="13" fill="#666" text-decoration="line-through">Оплатить счёт</text>
+    <text x="64" y="262" font-family="system-ui, sans-serif" font-size="10" fill="#444">Выполнено</text>
+
+    <!-- Task item 3 -->
+    <rect x="24" y="286" width="232" height="56" rx="12" fill="#222240"/>
+    <circle cx="44" cy="314" r="10" fill="none" stroke="#FFB347" stroke-width="2"/>
+    <text x="64" y="310" font-family="system-ui, sans-serif" font-size="13" fill="#e0e0e0">Подготовить отчёт</text>
+    <text x="64" y="326" font-family="system-ui, sans-serif" font-size="10" fill="#666">Завтра, 10:00</text>
+    <rect x="220" y="304" width="24" height="6" rx="3" fill="#FFB347"/>
+
+    <!-- Task item 4 -->
+    <rect x="24" y="350" width="232" height="56" rx="12" fill="#222240"/>
+    <circle cx="44" cy="378" r="10" fill="none" stroke="#00C9FF" stroke-width="2"/>
+    <text x="64" y="374" font-family="system-ui, sans-serif" font-size="13" fill="#e0e0e0">Позвонить маме</text>
+    <text x="64" y="390" font-family="system-ui, sans-serif" font-size="10" fill="#666">Пт, 19:00</text>
+    <rect x="220" y="368" width="24" height="6" rx="3" fill="#00C9FF"/>
+
+    <!-- Balance widget at bottom -->
+    <rect x="24" y="420" width="232" height="64" rx="12" fill="url(#accent1)" opacity="0.15" stroke="url(#accent1)" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="40" y="446" font-family="system-ui, sans-serif" font-size="12" fill="#a0a0c0">Баланс</text>
+    <text x="40" y="472" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#00E5A0">₽42 350</text>
+    <text x="170" y="472" font-family="system-ui, sans-serif" font-size="11" fill="#00E5A0">+12%</text>
+
+    <!-- FAB button -->
+    <circle cx="232" cy="420" r="22" fill="#6C3AE0" filter="url(#glow)"/>
+    <text x="225" y="427" font-family="system-ui, sans-serif" font-size="24" fill="#fff">+</text>
+  </g>
+
+  <!-- Decorative dots -->
+  <circle cx="660" cy="320" r="3" fill="#6C3AE0" opacity="0.4"/>
+  <circle cx="675" cy="280" r="2" fill="#00C9FF" opacity="0.3"/>
+  <circle cx="650" cy="400" r="2.5" fill="#00E5A0" opacity="0.3"/>
+  <circle cx="690" cy="360" r="2" fill="#FF6B6B" opacity="0.3"/>
+
+  <!-- Subtle "0₽" badge -->
+  <g transform="translate(1050, 80)">
+    <rect x="0" y="0" width="90" height="36" rx="18" fill="#00E5A0" opacity="0.15" stroke="#00E5A0" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="18" y="24" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#00E5A0">0 ₽</text>
+  </g>
+</svg>

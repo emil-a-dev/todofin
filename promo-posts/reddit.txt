@@ -1,0 +1,79 @@
+Сабреддиты для публикации:
+- r/androidapps (~1.5M подписчиков) — ГЛАВНЫЙ
+- r/Android — общий Android
+- r/productivity — продуктивность
+- r/getdisciplined — самодисциплина
+
+===== ПОСТ ДЛЯ r/androidapps =====
+
+Title: [DEV] Todo Budget — free all-in-one task planner + budget tracker + pomodoro timer (9MB, offline, no ads-wall, no subscriptions)
+
+Body:
+
+Hi r/androidapps! I'm a solo developer and I just released my Android app — **Todo Budget**.
+
+I was tired of juggling 3-4 separate apps for tasks, budget, and focus timer — and every "free" app eventually locks basic features behind a paywall. So I built one that does it all, for free, forever.
+
+## What's inside:
+
+📋 **Task Manager**
+- Priorities (high/medium/low) with color coding
+- Subtasks with checklists
+- Recurring tasks (daily/weekly/monthly)
+- Swipe gestures to complete/delete
+- Search across all tasks
+- Reminders with exact time notifications
+
+💰 **Budget Tracker**
+- Track income & expenses by category
+- Spending limits per category
+- Debt tracking
+- Budget health indicator
+- Financial snapshots & analytics
+- Charts and graphs
+- Home screen balance widget
+
+⏱ **Pomodoro Timer**
+- Customizable focus/break intervals
+- Session statistics (today & all time)
+
+📝 **Quick Notes**
+- Text + voice input (speech-to-text)
+
+## Key points:
+- **100% free** — no subscriptions, no premium tier, no in-app purchases
+- **9 MB** APK size
+- **Works offline** — no internet required
+- **Privacy-first** — all data stored locally on device (encrypted Room DB), nothing sent to servers
+- **Dark theme** support
+- **CSV export** for your data
+- **Android 5.0+** (API 21)
+- Built with: Kotlin, Jetpack Compose, Material 3
+
+## Download:
+
+- 🌐 Website: https://emil-a-dev.github.io/todofin/
+- 📦 Direct APK: https://github.com/emil-a-dev/todofin/releases/download/v3.0/TodoBudget-v3.0.apk
+
+Would love to hear your feedback and suggestions! What features would you want to see next?
+
+===== ПОСТ ДЛЯ r/productivity =====
+
+Title: I built a free Android app that combines task management, budget tracking, and pomodoro timer — no subscriptions, ever
+
+Body:
+
+I got frustrated with the subscription model of productivity apps. Every decent task manager wants $5/month, every budget app wants $3/month, every pomodoro app has a "premium" tier.
+
+So I built **Todo Budget** — a single 9MB Android app that handles:
+
+- **Tasks** with priorities, subtasks, recurring schedules, reminders, and swipe gestures
+- **Budget tracking** with categories, spending limits, debt tracking, graphs
+- **Pomodoro timer** with customizable intervals and session stats
+- **Quick notes** with voice input
+
+It's completely free. No subscriptions. No in-app purchases. No premium features locked away. All your data stays on your device.
+
+Download (9 MB): https://emil-a-dev.github.io/todofin/
+
+Happy to answer any questions!

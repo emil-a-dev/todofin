@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+
+  <text x="540" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">Почему это круто?</text>
+
+  <!-- Stat 1 -->
+  <g transform="translate(100, 480)">
+    <rect width="880" height="160" rx="28" fill="#1e1e38"/>
+    <text x="80" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="60" font-weight="bold" fill="#00E5A0">9</text>
+    <text x="130" y="100" font-family="system-ui, sans-serif" font-size="32" fill="#00E5A0">МБ</text>
+    <text x="300" y="90" font-family="system-ui, sans-serif" font-size="28" fill="#8888aa">Меньше одной фотки</text>
+    <text x="300" y="125" font-family="system-ui, sans-serif" font-size="22" fill="#555577">R8 оптимизация: было 18 → стало 9</text>
+  </g>
+
+  <!-- Stat 2 -->
+  <g transform="translate(100, 680)">
+    <rect width="880" height="160" rx="28" fill="#1e1e38"/>
+    <text x="80" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="60" font-weight="bold" fill="#FF6B6B">0 ₽</text>
+    <text x="300" y="90" font-family="system-ui, sans-serif" font-size="28" fill="#8888aa">Ноль подписок, навсегда</text>
+    <text x="300" y="125" font-family="system-ui, sans-serif" font-size="22" fill="#555577">Без premium, без in-app покупок</text>
+  </g>
+
+  <!-- Stat 3 -->
+  <g transform="translate(100, 880)">
+    <rect width="880" height="160" rx="28" fill="#1e1e38"/>
+    <text x="80" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="50" fill="#00C9FF">🔒</text>
+    <text x="300" y="90" font-family="system-ui, sans-serif" font-size="28" fill="#8888aa">Данные на устройстве</text>
+    <text x="300" y="125" font-family="system-ui, sans-serif" font-size="22" fill="#555577">Ничего не улетает на серверы</text>
+  </g>
+
+  <!-- Stat 4 -->
+  <g transform="translate(100, 1080)">
+    <rect width="880" height="160" rx="28" fill="#1e1e38"/>
+    <text x="80" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="50" fill="#FFB347">📴</text>
+    <text x="300" y="90" font-family="system-ui, sans-serif" font-size="28" fill="#8888aa">Работает оффлайн</text>
+    <text x="300" y="125" font-family="system-ui, sans-serif" font-size="22" fill="#555577">Интернет не нужен</text>
+  </g>
+
+  <!-- Stat 5 -->
+  <g transform="translate(100, 1280)">
+    <rect width="880" height="160" rx="28" fill="#1e1e38"/>
+    <text x="80" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="50" fill="#B8A0FF">🌙</text>
+    <text x="300" y="90" font-family="system-ui, sans-serif" font-size="28" fill="#8888aa">Тёмная тема</text>
+    <text x="300" y="125" font-family="system-ui, sans-serif" font-size="22" fill="#555577">Material 3, современный дизайн</text>
+  </g>
+</svg>

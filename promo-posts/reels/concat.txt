@@ -1,0 +1,11 @@
+file '/home/neko/todofin-landing/promo-posts/reels/png/frame1-problem.png'
+duration 3
+file '/home/neko/todofin-landing/promo-posts/reels/png/frame2-solution.png'
+duration 3
+file '/home/neko/todofin-landing/promo-posts/reels/png/frame3-features.png'
+duration 4
+file '/home/neko/todofin-landing/promo-posts/reels/png/frame4-stats.png'
+duration 4
+file '/home/neko/todofin-landing/promo-posts/reels/png/frame5-cta.png'
+duration 4
+file '/home/neko/todofin-landing/promo-posts/reels/png/frame5-cta.png'

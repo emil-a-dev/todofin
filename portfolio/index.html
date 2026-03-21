@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Emil Abdullin — Developer</title>
+<meta name="description" content="Emil Abdullin — Full-Stack Developer. Mobile, Web, Automation.">
+<meta name="keywords" content="Emil Abdullin, разработчик, developer, Kotlin, Android, Next.js, Python, Telegram bot, мобильные приложения, веб-разработка">
+<meta name="author" content="Emil Abdullin">
+<meta name="robots" content="index, follow">
+<meta name="yandex-verification" content="d2fe10db7ee3b52e">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+
+<!-- Open Graph (Google / Social preview) -->
+<meta property="og:title" content="Emil Abdullin — Developer">
+<meta property="og:description" content="Emil Abdullin — Full-Stack Developer. Mobile, Web, Automation.">
+<meta property="og:image" content="https://www.emilabdblog.uz/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.emilabdblog.uz">
+<meta property="og:type" content="website">
+
+<!-- THREE.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   CORE
+═══════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050510;--bg2:#0a0a1e;--card:rgba(12,12,35,.7);
+  --text:#f0f0ff;--sub:#8888a8;--muted:#44445a;
+  --accent:#7c3aed;--accent2:#2563eb;--cyan:#06b6d4;
+  --green:#10b981;--orange:#f59e0b;--pink:#ec4899;--red:#ef4444;
+  --grad:linear-gradient(135deg,#7c3aed,#2563eb,#06b6d4);
+  --grd2:linear-gradient(135deg,#f59e0b,#ec4899,#7c3aed);
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Inter',system-ui,sans-serif;
+  --head:'Syne','Inter',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:auto;font-size:16px}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);
+  overscroll-behavior-x:none;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  touch-action:pan-y}
+::selection{background:rgba(124,58,237,.4);color:#fff}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:10px}
+a{color:inherit;text-decoration:none}
+canvas{display:block}
+
+/* ═══════════════════════════════════════════════
+   PRELOADER — Cinematic counter
+═══════════════════════════════════════════════ */
+#preloader{position:fixed;inset:0;z-index:99999;background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .8s var(--ease),visibility .8s}
+#preloader.done{opacity:0;visibility:hidden;pointer-events:none}
+#preloader .pre-count{font-family:var(--head);font-size:clamp(5rem,15vw,12rem);
+  font-weight:800;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.12);
+  position:relative}
+#preloader .pre-count .fill{position:absolute;inset:0;background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  clip-path:inset(0 100% 0 0);transition:clip-path .1s linear}
+#preloader .pre-bar{width:280px;height:2px;background:rgba(255,255,255,.06);
+  border-radius:2px;margin-top:2rem;overflow:hidden}
+#preloader .pre-bar-fill{height:100%;width:0;background:var(--grad);border-radius:2px;
+  transition:width .1s linear}
+#preloader .pre-text{font-family:var(--mono);font-size:.7rem;color:var(--muted);
+  margin-top:1.2rem;text-transform:uppercase;letter-spacing:4px}
+
+/* ═══════════════════════════════════════════════
+   CUSTOM CURSOR (mix-blend-mode)
+═══════════════════════════════════════════════ */
+.cursor{position:fixed;width:20px;height:20px;border-radius:50%;
+  background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:99998;
+  transform:translate(-50%,-50%) scale(1);transition:width .4s var(--ease),height .4s var(--ease)}
+.cursor.big{width:80px;height:80px}
+.cursor-trail{position:fixed;width:8px;height:8px;border-radius:50%;
+  background:rgba(124,58,237,.5);pointer-events:none;z-index:99997;
+  transform:translate(-50%,-50%);transition:none}
+
+/* ═══════════════════════════════════════════════
+   THREE.JS CONTAINER
+═══════════════════════════════════════════════ */
+#nebula{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ═══════════════════════════════════════════════
+   NOISE
+═══════════════════════════════════════════════ */
+.noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:256px}
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+.nav{position:fixed;top:0;width:100%;z-index:100;padding:0 clamp(1.5rem,4vw,4rem);
+  mix-blend-mode:difference;transition:opacity .5s}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
+.logo{font-family:var(--head);font-size:1.5rem;font-weight:800;letter-spacing:-1px;cursor:pointer}
+.nav-links{display:flex;gap:clamp(1.5rem,3vw,3rem);list-style:none}
+.nav-links a{font-size:.85rem;font-weight:500;position:relative;letter-spacing:.5px;
+  transition:opacity .3s;cursor:pointer}
+.nav-links a:hover{opacity:.5}
+.burger{display:none;background:none;border:none;cursor:pointer;width:30px;height:20px;
+  position:relative;z-index:101}
+.burger span{display:block;width:100%;height:1.5px;background:#fff;position:absolute;
+  left:0;transition:.3s var(--ease)}
+.burger span:nth-child(1){top:0}
+.burger span:nth-child(2){top:50%;transform:translateY(-50%)}
+.burger span:nth-child(3){bottom:0}
+.burger.active span:nth-child(1){top:50%;transform:translateY(-50%) rotate(45deg)}
+.burger.active span:nth-child(2){opacity:0}
+.burger.active span:nth-child(3){bottom:auto;top:50%;transform:translateY(-50%) rotate(-45deg)}
+
+/* ═══════════════════════════════════════════════
+   SECTION LAYOUT
+═══════════════════════════════════════════════ */
+section{position:relative;z-index:2}
+.container{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+.hero{min-height:100vh;display:flex;align-items:center;padding:0;position:relative;overflow:hidden}
+.hero-content{position:relative;z-index:3;padding:0 clamp(1.5rem,4vw,6rem);width:100%}
+
+.hero-line{overflow:hidden;margin-bottom:.2rem}
+.hero-title{font-family:var(--head);font-size:clamp(1.5rem,9vw,8.5rem);font-weight:800;
+  line-height:.95;letter-spacing:-4px;text-transform:uppercase;
+  transform:translateY(120%);will-change:transform}
+
+.hero-sub-wrap{overflow:hidden;margin-top:clamp(1.5rem,3vw,3rem);margin-bottom:2.5rem}
+.hero-sub{font-size:clamp(.95rem,1.5vw,1.2rem);color:var(--sub);max-width:550px;
+  line-height:1.8;font-weight:400;transform:translateY(120%);will-change:transform}
+
+.hero-cta-wrap{overflow:hidden}
+.hero-ctas{display:flex;gap:1.5rem;flex-wrap:wrap;transform:translateY(120%);will-change:transform}
+
+.btn-c{position:relative;display:inline-flex;align-items:center;gap:.7rem;
+  padding:1.1rem 2.8rem;font-family:var(--sans);font-size:.9rem;font-weight:600;
+  border:none;cursor:pointer;overflow:hidden;border-radius:60px;transition:transform .5s var(--ease)}
+.btn-c:hover{transform:scale(1.05)}
+.btn-fill{background:var(--text);color:var(--bg)}
+.btn-fill::before{content:'';position:absolute;inset:0;background:var(--grad);
+  transform:translateY(100%);transition:transform .5s var(--ease);border-radius:60px}
+.btn-fill:hover::before{transform:translateY(0)}
+.btn-fill:hover{color:#fff}
+.btn-fill span,.btn-fill svg{position:relative;z-index:1}
+.btn-outline{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.2)}
+.btn-outline:hover{border-color:var(--accent)}
+
+.hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.8rem;z-index:3}
+.scroll-line{width:1px;height:60px;background:rgba(255,255,255,.15);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:50%;
+  background:linear-gradient(transparent,#fff);animation:scrollDown 2s ease-in-out infinite}
+@keyframes scrollDown{0%{top:-50%}100%{top:150%}}
+.scroll-text{font-size:.6rem;text-transform:uppercase;letter-spacing:3px;color:var(--muted);
+  writing-mode:vertical-rl;font-family:var(--mono)}
+
+/* ═══════════════════════════════════════════════
+   MARQUEE
+═══════════════════════════════════════════════ */
+.marquee-section{padding:5rem 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.04);
+  border-bottom:1px solid rgba(255,255,255,.04)}
+.marquee-track{display:flex;width:max-content;animation:marquee 30s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{font-family:var(--head);font-size:clamp(3rem,7vw,6rem);font-weight:800;
+  white-space:nowrap;padding:0 2rem;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.1);
+  text-transform:uppercase;letter-spacing:-2px;transition:all .5s}
+.marquee-item:hover{-webkit-text-stroke-color:var(--accent);color:rgba(124,58,237,.05)}
+.marquee-dot{display:inline-flex;align-items:center;padding:0 2rem}
+.marquee-dot::before{content:'';width:12px;height:12px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 20px var(--accent)}
+
+/* ═══════════════════════════════════════════════
+   ABOUT (split screen)
+═══════════════════════════════════════════════ */
+.about{padding:clamp(6rem,12vh,12rem) 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,8rem);align-items:center}
+.about-left{position:relative}
+.about-img-wrap{width:100%;aspect-ratio:3/4;border-radius:20px;overflow:hidden;position:relative;
+  background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(6,182,212,.1));
+  border:1px solid rgba(255,255,255,.05)}
+.about-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:10rem;filter:grayscale(.3);position:relative;overflow:hidden}
+.about-img-inner img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.about-img-inner::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 60%,var(--bg))}
+.img-parallax{will-change:transform;transition:none}
+
+.about-tag{position:absolute;padding:.6rem 1.2rem;background:rgba(10,10,30,.8);
+  backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,.06);border-radius:50px;
+  font-size:.75rem;font-weight:600;font-family:var(--mono);white-space:nowrap;z-index:3}
+.tag-1{bottom:15%;right:5%;color:var(--cyan)}
+.tag-2{top:10%;left:5%;color:var(--orange)}
+.tag-3{bottom:40%;right:2%;color:var(--pink)}
+
+.about-right h2{font-family:var(--head);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;
+  line-height:1.1;letter-spacing:-1.5px;margin-bottom:2rem}
+.about-right h2 em{font-style:normal;background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.about-right p{color:var(--sub);line-height:1.9;margin-bottom:1.5rem;font-size:clamp(.9rem,1.1vw,1.05rem)}
+
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;
+  padding-top:3rem;border-top:1px solid rgba(255,255,255,.06)}
+.a-stat{text-align:center}
+.a-stat-num{font-family:var(--head);font-size:clamp(2.2rem,3.5vw,3rem);font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.a-stat-label{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-top:.3rem}
+
+/* ═══════════════════════════════════════════════
+   EXPERTISE (tech cards with holographic effect)
+═══════════════════════════════════════════════ */
+.expertise{padding:clamp(6rem,12vh,12rem) 0}
+.sec-head{margin-bottom:clamp(3rem,6vh,5rem)}
+.sec-head .eyebrow{font-family:var(--mono);font-size:.7rem;text-transform:uppercase;
+  letter-spacing:4px;color:var(--accent);display:flex;align-items:center;gap:1rem;
+  margin-bottom:1rem}
+.sec-head .eyebrow::before{content:'';width:40px;height:1px;background:var(--accent)}
+.sec-head h2{font-family:var(--head);font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;
+  letter-spacing:-2px;line-height:1.1}
+
+.tech-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.t-card{position:relative;padding:2rem 1.5rem;background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.04);border-radius:16px;overflow:hidden;
+  cursor:pointer;transition:border-color .4s var(--ease),transform .4s var(--ease)}
+.t-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .4s;
+  background:conic-gradient(from var(--angle,0deg),transparent,rgba(124,58,237,.15),
+  rgba(37,99,235,.15),rgba(6,182,212,.15),rgba(236,72,153,.1),transparent);
+  border-radius:16px}
+.t-card:hover{border-color:rgba(124,58,237,.3);transform:translateY(-8px)}
+.t-card:hover::before{opacity:1}
+.t-card-icon{font-size:2.2rem;margin-bottom:1rem;position:relative;z-index:1;
+  filter:drop-shadow(0 0 15px rgba(124,58,237,.3))}
+.t-card-name{font-family:var(--head);font-weight:700;font-size:1.05rem;margin-bottom:.4rem;
+  position:relative;z-index:1}
+.t-card-lvl{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--muted);position:relative;z-index:1}
+.t-card-bar{height:2px;margin-top:1rem;background:rgba(255,255,255,.04);border-radius:2px;
+  position:relative;z-index:1;overflow:hidden}
+.t-card-bar-fill{height:100%;border-radius:2px;background:var(--grad);
+  transform-origin:left;transform:scaleX(0);transition:transform 1.2s var(--ease)}
+.t-card.vis .t-card-bar-fill{transform:scaleX(1)}
+
+/* holographic shimmer */
+.holo-shimmer{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;border-radius:16px}
+.holo-shimmer::after{content:'';position:absolute;width:200%;height:200%;top:-50%;left:-50%;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.04) 40%,
+  rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 60%,transparent 70%);
+  transform:rotate(25deg) translateX(-100%);transition:none}
+.t-card:hover .holo-shimmer::after{animation:holoSweep .8s ease forwards}
+@keyframes holoSweep{to{transform:rotate(25deg) translateX(100%)}}
+
+/* ═══════════════════════════════════════════════
+   PROJECTS — Vertical grid
+═══════════════════════════════════════════════ */
+.projects{padding:clamp(6rem,12vh,12rem) 0}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:2rem}
+
+.p-card{position:relative;overflow:hidden;
+  border-radius:24px;border:1px solid rgba(255,255,255,.06);background:var(--card);
+  backdrop-filter:blur(20px);transition:transform .6s var(--ease),border-color .4s}
+.p-card:hover{border-color:rgba(124,58,237,.3);transform:translateY(-12px)}
+
+.p-card-visual{height:260px;overflow:hidden;position:relative;
+  display:flex;align-items:center;justify-content:center}
+.p-card-visual::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(5,5,16,.9))}
+.p-visual-bg{position:absolute;inset:0;transition:transform .8s var(--ease)}
+.p-card:hover .p-visual-bg{transform:scale(1.08)}
+.p-card-emoji{font-size:5rem;position:relative;z-index:2;
+  filter:drop-shadow(0 10px 40px rgba(0,0,0,.5))}
+.p-card-num{position:absolute;top:1rem;right:1.5rem;font-family:var(--mono);
+  font-size:.7rem;color:rgba(255,255,255,.2);z-index:2}
+
+.p-card-body{padding:2rem 2rem 2.2rem}
+.p-card-title{font-family:var(--head);font-size:1.5rem;font-weight:800;
+  letter-spacing:-.5px;margin-bottom:.7rem}
+.p-card-desc{font-size:.88rem;color:var(--sub);line-height:1.7;margin-bottom:1.2rem}
+.p-card-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
+.p-tag{padding:.3rem .8rem;border:1px solid rgba(255,255,255,.06);border-radius:30px;
+  font-size:.7rem;font-weight:600;color:var(--sub);transition:border-color .3s,color .3s}
+.p-tag:hover{border-color:var(--accent);color:var(--accent)}
+.p-card-foot{display:flex;align-items:center;justify-content:space-between}
+.p-card-stat{display:flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:600}
+.p-card-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:600;
+  color:var(--accent);transition:gap .3s var(--ease)}
+.p-card-link:hover{gap:1rem}
+
+/* ═══════════════════════════════════════════════
+   SERVICES — Bento grid
+═══════════════════════════════════════════════ */
+.services{padding:clamp(6rem,12vh,12rem) 0}
+.svc-bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(200px,auto);gap:1rem}
+.svc-b{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);
+  border-radius:20px;padding:clamp(1.5rem,3vw,2.5rem);position:relative;overflow:hidden;
+  transition:border-color .4s,transform .4s var(--ease);cursor:default}
+.svc-b:hover{border-color:rgba(124,58,237,.25);transform:translateY(-4px)}
+.svc-b::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:var(--grad);opacity:0;transition:opacity .4s}
+.svc-b:hover::after{opacity:1}
+.svc-b.b1{grid-column:span 7;grid-row:span 2}
+.svc-b.b2{grid-column:span 5}
+.svc-b.b3{grid-column:span 5}
+.svc-b.b4{grid-column:span 4}
+.svc-b.b5{grid-column:span 4}
+.svc-b.b6{grid-column:span 4}
+.svc-b-icon{font-size:2.5rem;margin-bottom:1.5rem;display:block}
+.svc-b h3{font-family:var(--head);font-size:clamp(1.2rem,1.8vw,1.6rem);font-weight:700;
+  margin-bottom:.8rem;letter-spacing:-.5px}
+.svc-b p{color:var(--sub);font-size:.9rem;line-height:1.7}
+.svc-b .mini-list{margin-top:1rem;list-style:none}
+.svc-b .mini-list li{padding:.35rem 0;color:var(--sub);font-size:.85rem;
+  display:flex;align-items:center;gap:.6rem}
+.svc-b .mini-list li::before{content:'→';color:var(--accent);font-weight:700;font-size:.7rem}
+.svc-big-num{position:absolute;right:1.5rem;bottom:1rem;font-family:var(--head);
+  font-size:clamp(4rem,8vw,7rem);font-weight:900;color:rgba(255,255,255,.02);
+  line-height:1;letter-spacing:-4px;pointer-events:none}
+
+/* ═══════════════════════════════════════════════
+   PROCESS — Timeline
+═══════════════════════════════════════════════ */
+.process{padding:clamp(6rem,12vh,12rem) 0}
+.timeline{position:relative;max-width:900px;margin:0 auto;padding-left:60px}
+.timeline::before{content:'';position:absolute;left:29px;top:0;bottom:0;width:1px;
+  background:linear-gradient(var(--bg),rgba(124,58,237,.3),rgba(6,182,212,.3),var(--bg))}
+.tl-item{position:relative;padding:0 0 5rem;opacity:0;transform:translateY(40px)}
+.tl-dot{position:absolute;left:-38px;top:6px;width:16px;height:16px;border-radius:50%;
+  border:2px solid var(--accent);background:var(--bg);z-index:2;
+  box-shadow:0 0 0 4px rgba(124,58,237,.1);transition:all .4s}
+.tl-item:hover .tl-dot{background:var(--accent);box-shadow:0 0 20px rgba(124,58,237,.4),0 0 0 6px rgba(124,58,237,.1)}
+.tl-num{font-family:var(--mono);font-size:.65rem;color:var(--accent);letter-spacing:2px;
+  margin-bottom:.5rem;text-transform:uppercase}
+.tl-item h4{font-family:var(--head);font-size:1.3rem;font-weight:700;margin-bottom:.6rem;
+  letter-spacing:-.5px}
+.tl-item p{color:var(--sub);font-size:.9rem;line-height:1.7;max-width:500px}
+
+/* ═══════════════════════════════════════════════
+   CONTACT — Clean & bold
+═══════════════════════════════════════════════ */
+.contact{padding:clamp(6rem,12vh,12rem) 0}
+.contact-big{text-align:center;max-width:1000px;margin:0 auto}
+.contact-big h2{font-family:var(--head);font-size:clamp(3rem,8vw,7rem);font-weight:800;
+  line-height:.95;letter-spacing:-3px;margin-bottom:2rem;text-transform:uppercase}
+.contact-big h2 em{font-style:normal;background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.contact-big p{color:var(--sub);font-size:clamp(1rem,1.3vw,1.15rem);max-width:500px;
+  margin:0 auto 3rem;line-height:1.8}
+.contact-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:4rem}
+.c-link{display:flex;align-items:center;gap:.8rem;padding:1rem 2rem;
+  border:1px solid rgba(255,255,255,.06);border-radius:60px;font-weight:600;
+  font-size:.9rem;transition:all .4s var(--ease);cursor:pointer;background:rgba(255,255,255,.02)}
+.c-link:hover{border-color:var(--accent);background:rgba(124,58,237,.08);transform:translateY(-4px)}
+.c-link-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:1.1rem}
+
+.contact-form{max-width:600px;margin:0 auto;text-align:left}
+.cf-g{margin-bottom:1.5rem}
+.cf-g label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:2px;
+  color:var(--muted);margin-bottom:.6rem;font-family:var(--mono)}
+.cf-g input,.cf-g textarea{width:100%;padding:1rem 0;background:transparent;
+  border:none;border-bottom:1px solid rgba(255,255,255,.08);color:var(--text);
+  font-family:var(--sans);font-size:1rem;outline:none;transition:border-color .3s}
+.cf-g input:focus,.cf-g textarea:focus{border-color:var(--accent)}
+.cf-g textarea{resize:none;min-height:120px}
+.cf-g input::placeholder,.cf-g textarea::placeholder{color:var(--muted)}
+.cf-submit{display:inline-flex;align-items:center;gap:.7rem;padding:1.2rem 3rem;
+  background:var(--text);color:var(--bg);border:none;border-radius:60px;
+  font-size:1rem;font-weight:700;cursor:pointer;font-family:var(--sans);
+  transition:all .4s var(--ease);position:relative;overflow:hidden;margin-top:1rem}
+.cf-submit:hover{transform:scale(1.05);box-shadow:0 0 40px rgba(124,58,237,.3)}
+.cf-submit::before{content:'';position:absolute;inset:0;background:var(--grad);
+  transform:translateY(100%);transition:transform .5s var(--ease);border-radius:60px}
+.cf-submit:hover::before{transform:translateY(0)}
+.cf-submit:hover{color:#fff}
+.cf-submit span{position:relative;z-index:1}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+.footer{padding:3rem 0;border-top:1px solid rgba(255,255,255,.04);position:relative;z-index:2}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.75rem;color:var(--muted);font-family:var(--mono)}
+.footer-copy a{color:var(--accent)}
+.footer-social{display:flex;gap:.5rem}
+.footer-social a{width:40px;height:40px;border:1px solid rgba(255,255,255,.06);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:.9rem;
+  transition:all .3s var(--ease)}
+.footer-social a:hover{border-color:var(--accent);transform:translateY(-4px)}
+
+/* ═══════════════════════════════════════════════
+   TEXT SCRAMBLE
+═══════════════════════════════════════════════ */
+.scramble{display:inline-block;position:relative}
+.scramble-char{display:inline-block;transition:none}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-left{max-width:500px}
+  .tech-cards{grid-template-columns:repeat(3,1fr)}
+  .svc-bento{grid-template-columns:1fr}
+  .svc-b.b1,.svc-b.b2,.svc-b.b3,.svc-b.b4,.svc-b.b5,.svc-b.b6{grid-column:span 1}
+  .process-track{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  html,body{height:auto;overflow-y:auto!important;-webkit-overflow-scrolling:touch}
+  .nav-links{display:none;position:fixed;inset:0;background:rgba(5,5,16,.97);
+    backdrop-filter:blur(30px);flex-direction:column;align-items:center;
+    justify-content:center;gap:2.5rem;z-index:100}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  .tech-cards{grid-template-columns:repeat(2,1fr)}
+  .about-tag{display:none}
+  .hero-title{font-size:clamp(1.5rem,9vw,8.5rem);letter-spacing:-2px}
+  .about-stats{grid-template-columns:repeat(3,1fr);gap:1rem}
+  .cursor,.cursor-trail{display:none!important}
+  .timeline{padding-left:40px}
+  .timeline::before{left:14px}
+  .tl-dot{left:-30px}
+}
+@media(max-width:480px){
+  .tech-cards{grid-template-columns:1fr 1fr}
+  .contact-big h2{letter-spacing:-1px}
+  .hero-title{letter-spacing:-1px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ PRELOADER ═══ -->
+<div id="preloader">
+  <div class="pre-count" aria-hidden="true">
+    <span class="fill" id="preFill">0</span>0
+  </div>
+  <div class="pre-bar"><div class="pre-bar-fill" id="preBar"></div></div>
+  <div class="pre-text">Инициализация портфолио</div>
+</div>
+
+<!-- THREE.JS -->
+<div id="nebula"></div>
+
+<!-- NOISE -->
+<div class="noise"></div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="trail0"></div>
+<div class="cursor-trail" id="trail1"></div>
+<div class="cursor-trail" id="trail2"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner container">
+    <div class="logo" data-scramble>EA</div>
+    <ul class="nav-links" id="navMenu">
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#expertise">Стек</a></li>
+      <li><a href="#projects">Проекты</a></li>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#contact">Контакт</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-line"><h1 class="hero-title" id="ht1">Developer</h1></div>
+    <div class="hero-line"><h1 class="hero-title" id="ht2">& Engineer</h1></div>
+    <div class="hero-line"><h1 class="hero-title" id="ht3" style="color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.25)">Emil Abdullin</h1></div>
+
+    <div class="hero-sub-wrap">
+      <p class="hero-sub" id="hSub">Mobile-приложения на Kotlin · Веб на Next.js · Python-автоматизация · Telegram-боты. От идеи до продакшена — один разработчик, ноль лишних звеньев.</p>
+    </div>
+
+    <div class="hero-cta-wrap">
+      <div class="hero-ctas" id="hCtas">
+        <a href="#projects" class="btn-c btn-fill"><span>Смотреть работы</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#contact" class="btn-c btn-outline">Обсудить проект</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-text">scroll</span>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-section">
+  <div class="marquee-track" id="mqTrack">
+    <span class="marquee-item">Kotlin</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Android</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Python</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Next.js</span><span class="marquee-dot"></span>
+    <span class="marquee-item">TypeScript</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Telegram Bots</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Tilda</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Linux</span><span class="marquee-dot"></span>
+    <!-- duplicate -->
+    <span class="marquee-item">Kotlin</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Android</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Python</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Next.js</span><span class="marquee-dot"></span>
+    <span class="marquee-item">TypeScript</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Telegram Bots</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Tilda</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Linux</span><span class="marquee-dot"></span>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left">
+        <div class="about-img-wrap">
+          <div class="about-img-inner img-parallax"><img src="MO_00_24_166.jpg" alt="Emil Abdullin"></div>
+          <div class="about-tag tag-1">⚡ 3+ лет опыта</div>
+          <div class="about-tag tag-2">📱 Mobile-first</div>
+          <div class="about-tag tag-3">🤖 Bot Developer</div>
+        </div>
+      </div>
+      <div class="about-right">
+        <h2>Создаю продукты,<br>которые <em>работают</em></h2>
+        <p>Я — Emil Abdullin, full-stack разработчик с фокусом на мобильных приложениях, веб-сервисах и автоматизации. Мой код живёт в продакшене: от Android-приложения Todo Budget (12 ★, сотни пользователей) до коммерческих сайтов и ивент-презентаций для автоконцернов.</p>
+        <p>Не рисую макеты неделями. Пишу код, который решает задачу. Каждый проект — от нуля до релиза — один разработчик. Быстро, чисто, без лишних звеньев.</p>
+        <div class="about-stats">
+          <div class="a-stat"><div class="a-stat-num" data-count="8">0</div><div class="a-stat-label">Проектов</div></div>
+          <div class="a-stat"><div class="a-stat-num" data-count="93" data-suf="+">0</div><div class="a-stat-label">Инструментов</div></div>
+          <div class="a-stat"><div class="a-stat-num" data-count="100" data-suf="%">0</div><div class="a-stat-label">Завершённых</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERTISE ═══ -->
+<section class="expertise" id="expertise">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow">Tech Stack</div>
+      <h2>Инструменты<br>под задачу</h2>
+    </div>
+    <div class="tech-cards" id="techGrid">
+      <div class="t-card"><div class="holo-shimmer"></div><div class="t-card-icon">🟣</div><div class="t-card-name">Kotlin</div><div class="t-card-lvl">Advanced</div><div class="t-card-bar"><div class="t-card-bar-fill" style="--w:90%"></div></div></div>
+      <div class="t-card"><div class="holo-shimmer"></div><div class="t-card-icon">🤖</div><div class="t-card-name">Android</div><div class="t-card-lvl">Advanced</div><div class="t-card-bar"><div class="t-card-bar-fill" style="--w:88%"></div></div></div>
+      <div class="t-card"><div class="holo-shimmer"></div><div class="t-card-icon">🐍</div><div class="t-card-name">Python</div><div class="t-card-lvl">Advanced</div><div class="t-card-bar"><div class="t-card-bar-fill" style="--w:92%"></div></div></div>
+      <div class="t-card"><div class="holo-shimmer"></div><div class="t-card-icon">🔷</div><div class="t-card-name">TypeScript</div><div class="t-card-lvl">Proficient</div><div class="t-card-bar"><div class="t-card-bar-fill" style="--w:78%"></div></div></div>
+      <div class="t-card"><div class="holo-shimmer"></div><div class="t-card-icon">▲</div><div class="t-card-name">Next.js 14</div><div class="t-card-lvl">Proficient</div><div class="t-card-bar"><div class="t-card-bar-fill" style="--w:80%"></div></div></div>
+      <div class="t-card"><div class="holo-shimmer"></div><div class="t-card-icon">🌊</div><div class="t-card-name">Tailwind CSS</div><div class="t-card-lvl">Proficient</div><div class="t-card-bar"><div class="t-card-bar-fill" style="--w:85%"></div></div></div>
+      <div class="t-card"><div class="holo-shimmer"></div><div class="t-card-icon">💬</div><div class="t-card-name">TG Bots</div><div class="t-card-lvl">Advanced</div><div class="t-card-bar"><div class="t-card-bar-fill" style="--w:90%"></div></div></div>
+      <div class="t-card"><div class="holo-shimmer"></div><div class="t-card-icon">🐧</div><div class="t-card-name">Linux</div><div class="t-card-lvl">Daily</div><div class="t-card-bar"><div class="t-card-bar-fill" style="--w:82%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══ -->
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow">Selected Work</div>
+      <h2>Проекты, которыми<br>я горжусь</h2>
+    </div>
+    <div class="projects-grid">
+
+        <!-- 1 -->
+        <div class="p-card">
+          <div class="p-card-visual" style="background:linear-gradient(135deg,#0a1a10,#0d2015)">
+            <div class="p-visual-bg" style="background:radial-gradient(circle at 40% 60%,rgba(16,185,129,.2),transparent 60%)"></div>
+            <div class="p-card-emoji">📚</div>
+            <div class="p-card-num">01 / 07</div>
+          </div>
+          <div class="p-card-body">
+            <h3 class="p-card-title">Lama Loca</h3>
+            <p class="p-card-desc">Локальный ИИ-ассистент для учёбы. Учится по вашим книгам и генерирует отчёты, презентации, конспекты — полностью офлайн. RAG + Qwen2.5 + ChromaDB.</p>
+            <div class="p-card-tags"><span class="p-tag">Python</span><span class="p-tag">RAG</span><span class="p-tag">Qwen</span><span class="p-tag">Gradio</span><span class="p-tag">ChromaDB</span></div>
+            <div class="p-card-foot"><span class="p-card-stat" style="color:var(--green)">★ 38 stars · 7 forks</span><a href="https://github.com/emil-a-dev/lama-loca" target="_blank" class="p-card-link">Open →</a></div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="p-card">
+          <div class="p-card-visual" style="background:linear-gradient(135deg,#1a1040,#0f2040)">
+            <div class="p-visual-bg" style="background:radial-gradient(circle at 30% 70%,rgba(124,58,237,.2),transparent 60%)"></div>
+            <div class="p-card-emoji">📱</div>
+            <div class="p-card-num">02 / 07</div>
+          </div>
+          <div class="p-card-body">
+            <h3 class="p-card-title">Todo Budget</h3>
+            <p class="p-card-desc">Android «4-в-1»: задачи, бюджет, помодоро, заметки. 9 МБ, оффлайн, без подписок. Сотни пользователей.</p>
+            <div class="p-card-tags"><span class="p-tag">Kotlin</span><span class="p-tag">Android</span><span class="p-tag">SQLite</span><span class="p-tag">Material 3</span></div>
+            <div class="p-card-foot"><span class="p-card-stat" style="color:var(--orange)">★ 12 stars · 2 forks</span><a href="https://github.com/emil-a-dev/todofin" target="_blank" class="p-card-link">Open →</a></div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="p-card">
+          <div class="p-card-visual" style="background:linear-gradient(135deg,#0a1a2a,#0a2535)">
+            <div class="p-visual-bg" style="background:radial-gradient(circle at 70% 30%,rgba(6,182,212,.2),transparent 60%)"></div>
+            <div class="p-card-emoji">🧰</div>
+            <div class="p-card-num">03 / 07</div>
+          </div>
+          <div class="p-card-body">
+            <h3 class="p-card-title">ToolBox Hub</h3>
+            <p class="p-card-desc">93+ бесплатных онлайн-инструментов. JSON, Base64, QR, UUID, пароли. Без регистрации, в браузере.</p>
+            <div class="p-card-tags"><span class="p-tag">Next.js 14</span><span class="p-tag">TypeScript</span><span class="p-tag">Tailwind</span><span class="p-tag">Vercel</span></div>
+            <div class="p-card-foot"><span class="p-card-stat" style="color:var(--cyan)">🧰 93+ tools</span><a href="https://github.com/emil-a-dev/toolbox-hub" target="_blank" class="p-card-link">Open →</a></div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="p-card">
+          <div class="p-card-visual" style="background:linear-gradient(135deg,#1a1510,#2a1a10)">
+            <div class="p-visual-bg" style="background:radial-gradient(circle at 50% 50%,rgba(245,158,11,.15),transparent 60%)"></div>
+            <div class="p-card-emoji">✈️</div>
+            <div class="p-card-num">04 / 07</div>
+          </div>
+          <div class="p-card-body">
+            <h3 class="p-card-title">Piala Travel</h3>
+            <p class="p-card-desc">Коммерческий сайт турфирмы Узбекистана. Каталог туров, адаптив, SEO-оптимизация, мессенджеры.</p>
+            <div class="p-card-tags"><span class="p-tag">Tilda</span><span class="p-tag">HTML/CSS</span><span class="p-tag">SEO</span></div>
+            <div class="p-card-foot"><span class="p-card-stat" style="color:var(--green)">🌍 pialatravel.uz</span><a href="https://pialatravel.uz/" target="_blank" class="p-card-link">Visit →</a></div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="p-card">
+          <div class="p-card-visual" style="background:linear-gradient(135deg,#1a0a20,#200a1a)">
+            <div class="p-visual-bg" style="background:radial-gradient(circle at 60% 40%,rgba(236,72,153,.15),transparent 60%)"></div>
+            <div class="p-card-emoji">🚗</div>
+            <div class="p-card-num">05 / 07</div>
+          </div>
+          <div class="p-card-body">
+            <h3 class="p-card-title">UzAuto Event</h3>
+            <p class="p-card-desc">Ивент-презентация Chevrolet Onix 2025 для UzAutoMotors. Python-автоматизация контента.</p>
+            <div class="p-card-tags"><span class="p-tag">Python</span><span class="p-tag">Автоматизация</span><span class="p-tag">Ивент</span></div>
+            <div class="p-card-foot"><span class="p-card-stat" style="color:var(--pink)">⭐ Коммерческий</span><a href="https://github.com/emil-a-dev/ivent_uzAuto" target="_blank" class="p-card-link">Open →</a></div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="p-card">
+          <div class="p-card-visual" style="background:linear-gradient(135deg,#0a1a15,#0a2a1a)">
+            <div class="p-visual-bg" style="background:radial-gradient(circle at 40% 60%,rgba(16,185,129,.15),transparent 60%)"></div>
+            <div class="p-card-emoji">🎓</div>
+            <div class="p-card-num">06 / 07</div>
+          </div>
+          <div class="p-card-body">
+            <h3 class="p-card-title">Future Academy</h3>
+            <p class="p-card-desc">EdTech-презентация с авто-навигацией, CSS-анимациями, интерактивными элементами.</p>
+            <div class="p-card-tags"><span class="p-tag">HTML5</span><span class="p-tag">CSS3</span><span class="p-tag">JavaScript</span></div>
+            <div class="p-card-foot"><span class="p-card-stat" style="color:var(--green)">📖 Презентация</span><a href="https://github.com/emil-a-dev/future-academy" target="_blank" class="p-card-link">Open →</a></div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="p-card">
+          <div class="p-card-visual" style="background:linear-gradient(135deg,#0a1025,#0a1530)">
+            <div class="p-visual-bg" style="background:radial-gradient(circle at 50% 50%,rgba(37,99,235,.15),transparent 60%)"></div>
+            <div class="p-card-emoji">🎵</div>
+            <div class="p-card-num">07 / 07</div>
+          </div>
+          <div class="p-card-body">
+            <h3 class="p-card-title">Audio Suite</h3>
+            <p class="p-card-desc">Python CLI: авто-интро, пакетные теги, микширование. Полная автоматизация аудио-конвейера.</p>
+            <div class="p-card-tags"><span class="p-tag">Python</span><span class="p-tag">pydub</span><span class="p-tag">mutagen</span><span class="p-tag">CLI</span></div>
+            <div class="p-card-foot"><span class="p-card-stat" style="color:var(--orange)">★ 2 stars</span><a href="https://github.com/emil-a-dev/music-intro-add" target="_blank" class="p-card-link">Open →</a></div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow">Services</div>
+      <h2>Чем могу<br>помочь</h2>
+    </div>
+    <div class="svc-bento">
+      <div class="svc-b b1">
+        <span class="svc-b-icon">📱</span>
+        <h3>Мобильные приложения</h3>
+        <p>Нативный Android на Kotlin с чистой архитектурой, Material Design 3, оффлайн-режимом и публикацией в Google Play.</p>
+        <ul class="mini-list">
+          <li>Kotlin + Jetpack Compose</li>
+          <li>Room / SQLite</li>
+          <li>Material Design 3</li>
+          <li>Google Play публикация</li>
+        </ul>
+        <div class="svc-big-num">01</div>
+      </div>
+      <div class="svc-b b2">
+        <span class="svc-b-icon">🌐</span>
+        <h3>Веб-разработка</h3>
+        <p>Next.js, React, Tilda — от лендинга до SaaS. SEO, адаптив, скорость.</p>
+        <div class="svc-big-num">02</div>
+      </div>
+      <div class="svc-b b3">
+        <span class="svc-b-icon">🤖</span>
+        <h3>Боты и автоматизация</h3>
+        <p>Telegram-боты, скрипты, API-интеграции. Заменю рутину кодом.</p>
+        <div class="svc-big-num">03</div>
+      </div>
+      <div class="svc-b b4">
+        <span class="svc-b-icon">⚡</span>
+        <h3>Быстро</h3>
+        <p>MVP за дни.</p>
+      </div>
+      <div class="svc-b b5">
+        <span class="svc-b-icon">🔒</span>
+        <h3>Надёжно</h3>
+        <p>Чистый код, тесты.</p>
+      </div>
+      <div class="svc-b b6">
+        <span class="svc-b-icon">🎯</span>
+        <h3>Результат</h3>
+        <p>100% завершённых проектов.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow">Workflow</div>
+      <h2>Как я<br>работаю</h2>
+    </div>
+    <div class="timeline" id="timeline">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-num">Шаг 01</div><h4>Анализ</h4><p>Разбираю задачу, фиксирую требования, оцениваю сроки. Бесплатная первая консультация.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-num">Шаг 02</div><h4>Архитектура</h4><p>Выбираю стек, проектирую структуру, согласовываю прототипы до начала кода.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-num">Шаг 03</div><h4>Разработка</h4><p>Пишу чистый код, показываю прогресс. Регулярные демо и обратная связь.</p></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-num">Шаг 04</div><h4>Запуск и поддержка</h4><p>Тесты, деплой, документация. Поддержка и доработки после релиза.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-big">
+      <h2>Давайте<br>создадим <em>что‑то</em><br>вместе</h2>
+      <p>Расскажите о проекте — первая консультация бесплатна. Отвечаю в Telegram в течение часа.</p>
+
+      <div class="contact-links">
+        <a href="https://t.me/rashtarar" target="_blank" class="c-link">
+          <div class="c-link-icon">💬</div> Telegram @rashtarar
+        </a>
+        <a href="https://github.com/emil-a-dev" target="_blank" class="c-link">
+          <div class="c-link-icon">🐙</div> GitHub
+        </a>
+        <a href="https://www.instagram.com/_emil.a_kde" target="_blank" class="c-link">
+          <div class="c-link-icon">📸</div> Instagram
+        </a>
+      </div>
+
+      <form class="contact-form" id="cForm">
+        <div class="cf-g"><label>Имя</label><input type="text" id="fName" placeholder="Как вас зовут?" required></div>
+        <div class="cf-g"><label>Проект</label><input type="text" id="fProj" placeholder="Приложение / Сайт / Бот"></div>
+        <div class="cf-g"><label>Сообщение</label><textarea id="fMsg" placeholder="Расскажите о задаче…" required></textarea></div>
+        <button type="submit" class="cf-submit"><span>Отправить →</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-copy">© 2026 <a href="#">Emil Abdullin</a> — crafted with code & passion</div>
+    <div class="footer-social">
+      <a href="https://github.com/emil-a-dev" target="_blank">🐙</a>
+      <a href="https://t.me/rashtarar" target="_blank">💬</a>
+      <a href="https://www.instagram.com/_emil.a_kde" target="_blank">📸</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+'use strict';
+
+/* ─── PRELOADER ─── */
+const preloader=document.getElementById('preloader');
+const preFill=document.getElementById('preFill');
+const preBar=document.getElementById('preBar');
+let preCount=0;
+const preInt=setInterval(()=>{
+  preCount+=Math.floor(Math.random()*4)+1;
+  if(preCount>100)preCount=100;
+  preFill.textContent=preCount;
+  preFill.parentElement.querySelector('.fill').textContent=preCount;
+  preFill.parentElement.querySelector('.fill').style.clipPath=`inset(0 ${100-preCount}% 0 0)`;
+  preBar.style.width=preCount+'%';
+  if(preCount>=100){clearInterval(preInt);setTimeout(()=>{
+    preloader.classList.add('done');
+    initAll();
+  },600)}
+},35);
+
+/* ─── THREE.JS NEBULA ─── */
+function initNebula(){
+  const container=document.getElementById('nebula');
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(75,innerWidth/innerHeight,.1,2000);
+  camera.position.z=400;
+  const renderer=new THREE.WebGLRenderer({alpha:true,antialias:false});
+  renderer.setSize(innerWidth,innerHeight);
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  container.appendChild(renderer.domElement);
+
+  // particles
+  const count=window.innerWidth<768?1200:3000;
+  const geo=new THREE.BufferGeometry();
+  const pos=new Float32Array(count*3);
+  const colors=new Float32Array(count*3);
+  const sizes=new Float32Array(count);
+  const palette=[[.486,.227,.929],[.145,.388,.835],[.024,.714,.831],[.925,.286,.612]];
+
+  for(let i=0;i<count;i++){
+    const i3=i*3;
+    const r=300+Math.random()*500;
+    const theta=Math.random()*Math.PI*2;
+    const phi=Math.acos(2*Math.random()-1);
+    pos[i3]=r*Math.sin(phi)*Math.cos(theta);
+    pos[i3+1]=r*Math.sin(phi)*Math.sin(theta);
+    pos[i3+2]=r*Math.cos(phi);
+    const c=palette[Math.floor(Math.random()*palette.length)];
+    colors[i3]=c[0];colors[i3+1]=c[1];colors[i3+2]=c[2];
+    sizes[i]=Math.random()*3+.5;
+  }
+  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  geo.setAttribute('color',new THREE.BufferAttribute(colors,3));
+  geo.setAttribute('size',new THREE.BufferAttribute(sizes,1));
+
+  const vertShader=`
+    attribute float size;
+    varying vec3 vColor;
+    void main(){
+      vColor=color;
+      vec4 mv=modelViewMatrix*vec4(position,1.0);
+      gl_PointSize=size*(300.0/(-mv.z));
+      gl_Position=projectionMatrix*mv;
+    }`;
+  const fragShader=`
+    varying vec3 vColor;
+    void main(){
+      float d=length(gl_PointCoord-vec2(0.5));
+      if(d>0.5)discard;
+      float a=1.0-smoothstep(0.0,0.5,d);
+      gl_FragColor=vec4(vColor,a*0.6);
+    }`;
+  const mat=new THREE.ShaderMaterial({
+    vertexShader:vertShader,fragmentShader:fragShader,
+    vertexColors:true,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending
+  });
+  const particles=new THREE.Points(geo,mat);
+  scene.add(particles);
+
+  // mouse interaction
+  let mouseX=0,mouseY=0;
+  document.addEventListener('mousemove',e=>{
+    mouseX=(e.clientX/innerWidth-0.5)*2;
+    mouseY=(e.clientY/innerHeight-0.5)*2;
+  });
+
+  window.addEventListener('resize',()=>{
+    camera.aspect=innerWidth/innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth,innerHeight);
+  });
+
+  function animate(){
+    requestAnimationFrame(animate);
+    particles.rotation.y+=0.0003;
+    particles.rotation.x+=0.0001;
+    // mouse influence
+    camera.position.x+=(mouseX*60-camera.position.x)*0.02;
+    camera.position.y+=(-mouseY*60-camera.position.y)*0.02;
+    camera.lookAt(scene.position);
+    renderer.render(scene,camera);
+  }
+  animate();
+}
+
+/* ─── CURSOR ─── */
+function initCursor(){
+  const isTouchDevice='ontouchstart' in window;
+  if(isTouchDevice)return;
+  const cur=document.getElementById('cursor');
+  const trails=[document.getElementById('trail0'),document.getElementById('trail1'),document.getElementById('trail2')];
+  let cx=0,cy=0,tx=0,ty=0;
+  const trailPos=trails.map(()=>({x:0,y:0}));
+
+  document.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY});
+
+  function loop(){
+    cx+=(tx-cx)*0.12;cy+=(ty-cy)*0.12;
+    cur.style.left=cx+'px';cur.style.top=cy+'px';
+
+    trails.forEach((t,i)=>{
+      const prev=i===0?{x:cx,y:cy}:trailPos[i-1];
+      trailPos[i].x+=(prev.x-trailPos[i].x)*(0.15-i*0.03);
+      trailPos[i].y+=(prev.y-trailPos[i].y)*(0.15-i*0.03);
+      t.style.left=trailPos[i].x+'px';
+      t.style.top=trailPos[i].y+'px';
+      t.style.opacity=0.4-i*0.12;
+      t.style.width=t.style.height=(6-i*1.5)+'px';
+    });
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  // hover state
+  document.querySelectorAll('a,button,.p-card,.t-card,.svc-b,.c-link,.tl-item').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cur.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
+  });
+}
+
+/* ─── GSAP ANIMATIONS ─── */
+function initAnimations(){
+  gsap.registerPlugin(ScrollTrigger);
+
+  // hero stagger
+  const tl=gsap.timeline({delay:0.2});
+  tl.to('#ht1',{y:0,duration:1.2,ease:'expo.out'})
+    .to('#ht2',{y:0,duration:1.2,ease:'expo.out'},'<0.1')
+    .to('#ht3',{y:0,duration:1.2,ease:'expo.out'},'<0.1')
+    .to('#hSub',{y:0,duration:1,ease:'expo.out'},'<0.3')
+    .to('#hCtas',{y:0,duration:1,ease:'expo.out'},'<0.15');
+
+  // parallax hero
+  gsap.to('.hero-content',{yPercent:30,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1}});
+
+  // about image parallax
+  gsap.to('.img-parallax',{yPercent:-15,ease:'none',scrollTrigger:{trigger:'.about',start:'top bottom',end:'bottom top',scrub:1}});
+  // about tags float
+  gsap.utils.toArray('.about-tag').forEach((t,i)=>{
+    gsap.to(t,{y:i%2===0?-20:20,ease:'none',scrollTrigger:{trigger:'.about',start:'top bottom',end:'bottom top',scrub:1}});
+  });
+
+  // about text reveal
+  gsap.from('.about-right h2',{y:60,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.about-right',start:'top 80%'}});
+  gsap.from('.about-right p',{y:40,opacity:0,duration:.8,stagger:.2,ease:'power3.out',scrollTrigger:{trigger:'.about-right',start:'top 75%'}});
+
+  // counter animation
+  const counterObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){
+      document.querySelectorAll('.a-stat-num').forEach(el=>{
+        const end=+el.dataset.count;const suf=el.dataset.suf||'';
+        gsap.to({v:0},{v:end,duration:2.5,ease:'power2.out',
+          onUpdate:function(){el.textContent=Math.floor(this.targets()[0].v)+suf}});
+      });counterObs.unobserve(e.target)}});
+  },{threshold:.3});
+  const statsEl=document.querySelector('.about-stats');
+  if(statsEl)counterObs.observe(statsEl);
+
+  // tech cards stagger + bar fills
+  gsap.from('.t-card',{y:80,opacity:0,duration:.8,stagger:.08,ease:'power3.out',
+    scrollTrigger:{trigger:'.tech-cards',start:'top 80%'}});
+  const techObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){
+      e.target.querySelectorAll('.t-card').forEach(c=>{
+        c.classList.add('vis');
+        const fill=c.querySelector('.t-card-bar-fill');
+        if(fill)fill.style.transform='scaleX('+parseInt(fill.style.getPropertyValue('--w'))/100+')';
+      });techObs.unobserve(e.target)}});
+  },{threshold:.2});
+  const tg=document.getElementById('techGrid');
+  if(tg)techObs.observe(tg);
+
+  // ─── PROJECTS REVEAL ───
+  gsap.from('.p-card',{y:60,opacity:0,duration:.8,stagger:.12,ease:'power3.out',
+    scrollTrigger:{trigger:'.projects-grid',start:'top 80%'}});
+
+  // services stagger
+  gsap.from('.svc-b',{y:60,opacity:0,duration:.7,stagger:.1,ease:'power3.out',
+    scrollTrigger:{trigger:'.svc-bento',start:'top 80%'}});
+
+  // timeline reveal
+  gsap.utils.toArray('.tl-item').forEach(item=>{
+    gsap.to(item,{opacity:1,y:0,duration:.8,ease:'power3.out',
+      scrollTrigger:{trigger:item,start:'top 85%'}});
+  });
+
+  // contact reveal
+  gsap.from('.contact-big h2',{y:80,opacity:0,duration:1.2,ease:'power3.out',
+    scrollTrigger:{trigger:'.contact-big',start:'top 80%'}});
+  gsap.from('.contact-links',{y:40,opacity:0,duration:.8,ease:'power3.out',
+    scrollTrigger:{trigger:'.contact-links',start:'top 85%'}});
+  gsap.from('.contact-form',{y:40,opacity:0,duration:.8,ease:'power3.out',
+    scrollTrigger:{trigger:'.contact-form',start:'top 90%'}});
+
+  // holographic angle for tech cards
+  document.querySelectorAll('.t-card').forEach(c=>{
+    c.addEventListener('mousemove',e=>{
+      const r=c.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width;
+      const y=(e.clientY-r.top)/r.height;
+      const angle=Math.atan2(y-.5,x-.5)*180/Math.PI;
+      c.style.setProperty('--angle',angle+'deg');
+    });
+  });
+}
+
+/* ─── NAV ─── */
+function initNav(){
+  const burger=document.getElementById('burger');
+  const menu=document.getElementById('navMenu');
+  burger.addEventListener('click',()=>{
+    burger.classList.toggle('active');
+    menu.classList.toggle('open');
+  });
+  menu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click',()=>{burger.classList.remove('active');menu.classList.remove('open')});
+  });
+  // smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      const t=document.querySelector(this.getAttribute('href'));
+      if(t)window.scrollTo({top:t.offsetTop,behavior:'smooth'});
+    });
+  });
+}
+
+/* ─── TEXT SCRAMBLE ─── */
+function initScramble(){
+  const chars='!<>-_\\/[]{}—=+*^?#ABCDEFGHIJKLM';
+  document.querySelectorAll('[data-scramble]').forEach(el=>{
+    const original=el.textContent;
+    el.addEventListener('mouseenter',()=>{
+      let iter=0;const int=setInterval(()=>{
+        el.textContent=original.split('').map((c,i)=>i<iter?original[i]:chars[Math.floor(Math.random()*chars.length)]).join('');
+        if(iter>=original.length)clearInterval(int);
+        iter+=1/2;
+      },30);
+    });
+  });
+}
+
+/* ─── FORM ─── */
+function initForm(){
+  document.getElementById('cForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    const name=document.getElementById('fName').value;
+    const proj=document.getElementById('fProj').value;
+    const msg=document.getElementById('fMsg').value;
+    const text=encodeURIComponent(`Привет! Меня зовут ${name}.\nПроект: ${proj}\n\n${msg}`);
+    window.open('https://t.me/rashtarar?text='+text,'_blank');
+  });
+}
+
+/* ─── INIT ALL ─── */
+function initAll(){
+  initNebula();
+  initCursor();
+  initAnimations();
+  initNav();
+  initScramble();
+  initForm();
+}
+
+})();
+</script>
+</body>
+</html>

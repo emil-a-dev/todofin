@@ -1,0 +1,42 @@
+===== PRODUCT HUNT SUBMISSION =====
+
+Name: Todo Budget
+Tagline: Free all-in-one task planner + budget tracker + pomodoro for Android
+URL: https://emil-a-dev.github.io/todofin/
+Topics: Productivity, Android, Task Management, Finance, Time Tracking
+
+===== DESCRIPTION =====
+
+Todo Budget is a free Android app that combines four essential productivity tools into one lightweight package:
+
+📋 **Task Manager** — Priorities, subtasks, recurring tasks, swipe gestures, reminders, search
+💰 **Budget Tracker** — Income/expense tracking by category, spending limits, debt tracking, charts, home screen widget
+⏱ **Pomodoro Timer** — Customizable focus/break intervals, session statistics
+📝 **Quick Notes** — Text + voice input
+
+**Why it's different:**
+- 100% free — no subscriptions, no premium, no in-app purchases. Ever.
+- 9 MB — lighter than a single photo
+- Works completely offline
+- All data stored locally — nothing leaves your device
+- Built with Kotlin, Jetpack Compose, Material 3
+
+**The problem it solves:**
+Most people need 3-4 apps for tasks, budget, and focus timer. Each one costs $3-5/month. Todo Budget replaces all of them — for free.
+
+Available on RuStore and as a direct APK download.
+
+===== MAKER COMMENT =====
+
+Hi Product Hunt! 👋
+
+I'm a solo developer who got frustrated with the subscription model of productivity apps. Every decent task manager, budget tracker, or pomodoro timer eventually asks for money.
+
+So I built Todo Budget — one app that does it all, for free. No catch. No "premium tier coming soon."
+
+The app is built with Kotlin and Jetpack Compose, stores everything locally using Room database, and weighs just 9 MB thanks to R8 optimization.
+
+I'd love your feedback — what features would make this even more useful?
+
+Download: https://apps.rustore.ru/app/ru.todobudget.todo
+Website: https://emil-a-dev.github.io/todofin/

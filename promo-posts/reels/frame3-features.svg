@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+
+  <!-- Feature blocks -->
+  <g transform="translate(100, 350)">
+    <rect width="880" height="220" rx="32" fill="#1e1e38" stroke="#6C3AE0" stroke-width="2" stroke-opacity="0.4"/>
+    <text x="60" y="80" font-family="system-ui, sans-serif" font-size="56">✅</text>
+    <text x="150" y="85" font-family="system-ui, sans-serif" font-size="40" font-weight="bold" fill="#fff">Задачи</text>
+    <text x="150" y="140" font-family="system-ui, sans-serif" font-size="26" fill="#8888aa">Приоритеты · Подзадачи · Свайпы</text>
+    <text x="150" y="180" font-family="system-ui, sans-serif" font-size="26" fill="#8888aa">Повторяющиеся · Напоминания</text>
+  </g>
+
+  <g transform="translate(100, 610)">
+    <rect width="880" height="220" rx="32" fill="#1e1e38" stroke="#00E5A0" stroke-width="2" stroke-opacity="0.4"/>
+    <text x="60" y="80" font-family="system-ui, sans-serif" font-size="56">💰</text>
+    <text x="150" y="85" font-family="system-ui, sans-serif" font-size="40" font-weight="bold" fill="#fff">Бюджет</text>
+    <text x="150" y="140" font-family="system-ui, sans-serif" font-size="26" fill="#8888aa">Расходы · Доходы · Лимиты</text>
+    <text x="150" y="180" font-family="system-ui, sans-serif" font-size="26" fill="#8888aa">Графики · Виджет баланса</text>
+  </g>
+
+  <g transform="translate(100, 870)">
+    <rect width="880" height="220" rx="32" fill="#1e1e38" stroke="#FF6B6B" stroke-width="2" stroke-opacity="0.4"/>
+    <text x="60" y="80" font-family="system-ui, sans-serif" font-size="56">⏱</text>
+    <text x="150" y="85" font-family="system-ui, sans-serif" font-size="40" font-weight="bold" fill="#fff">Помодоро</text>
+    <text x="150" y="140" font-family="system-ui, sans-serif" font-size="26" fill="#8888aa">Настраиваемые сессии</text>
+    <text x="150" y="180" font-family="system-ui, sans-serif" font-size="26" fill="#8888aa">Статистика фокусировки</text>
+  </g>
+
+  <g transform="translate(100, 1130)">
+    <rect width="880" height="220" rx="32" fill="#1e1e38" stroke="#00C9FF" stroke-width="2" stroke-opacity="0.4"/>
+    <text x="60" y="80" font-family="system-ui, sans-serif" font-size="56">📝</text>
+    <text x="150" y="85" font-family="system-ui, sans-serif" font-size="40" font-weight="bold" fill="#fff">Заметки</text>
+    <text x="150" y="140" font-family="system-ui, sans-serif" font-size="26" fill="#8888aa">Текст + голосовой ввод</text>
+    <text x="150" y="180" font-family="system-ui, sans-serif" font-size="26" fill="#8888aa">Мгновенное сохранение</text>
+  </g>
+
+  <!-- Title -->
+  <text x="540" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="bold" fill="#ffffff">4 инструмента</text>
+  <text x="540" y="290" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="bold" fill="#6C3AE0">в одном приложении</text>
+
+  <!-- Bottom -->
+  <text x="540" y="1520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="30" fill="#555577">Всего 9 МБ</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0510"/>
+      <stop offset="100%" style="stop-color:#1a0a1f"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+  <circle cx="300" cy="600" r="200" fill="#FF6B6B" opacity="0.04"/>
+  <circle cx="800" cy="1400" r="250" fill="#FF6B6B" opacity="0.03"/>
+
+  <g transform="translate(100, 450)">
+    <rect width="880" height="180" rx="24" fill="#1a1020" stroke="#FF6B6B" stroke-width="2" stroke-opacity="0.3"/>
+    <text x="60" y="70" font-size="50">📋</text>
+    <text x="140" y="70" font-family="system-ui, sans-serif" font-size="36" fill="#ccc">Todoist</text>
+    <text x="140" y="120" font-family="system-ui, sans-serif" font-size="28" fill="#FF6B6B" font-weight="bold">₽359/мес</text>
+    <text x="140" y="155" font-family="system-ui, sans-serif" font-size="20" fill="#666">за приоритеты и фильтры</text>
+  </g>
+
+  <g transform="translate(100, 680)">
+    <rect width="880" height="180" rx="24" fill="#1a1020" stroke="#FF6B6B" stroke-width="2" stroke-opacity="0.3"/>
+    <text x="60" y="70" font-size="50">💰</text>
+    <text x="140" y="70" font-family="system-ui, sans-serif" font-size="36" fill="#ccc">Money Manager</text>
+    <text x="140" y="120" font-family="system-ui, sans-serif" font-size="28" fill="#FF6B6B" font-weight="bold">₽199 за отключение рекламы</text>
+    <text x="140" y="155" font-family="system-ui, sans-serif" font-size="20" fill="#666">полноэкранные ролики каждые 30 сек</text>
+  </g>
+
+  <g transform="translate(100, 910)">
+    <rect width="880" height="180" rx="24" fill="#1a1020" stroke="#FF6B6B" stroke-width="2" stroke-opacity="0.3"/>
+    <text x="60" y="70" font-size="50">🌳</text>
+    <text x="140" y="70" font-family="system-ui, sans-serif" font-size="36" fill="#ccc">Forest</text>
+    <text x="140" y="120" font-family="system-ui, sans-serif" font-size="28" fill="#FF6B6B" font-weight="bold">₽299 единоразово</text>
+    <text x="140" y="155" font-family="system-ui, sans-serif" font-size="20" fill="#666">только таймер, больше ничего</text>
+  </g>
+
+  <g transform="translate(540, 1250)">
+    <text x="0" y="0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="44" fill="#FF6B6B" font-weight="bold" filter="url(#glow)">~₽800/мес на подписки</text>
+    <text x="0" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="30" fill="#666">и данные на чужих серверах</text>
+  </g>
+</svg>

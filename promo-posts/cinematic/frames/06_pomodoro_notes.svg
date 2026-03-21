@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a0a10"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+
+  <!-- Pomodoro section -->
+  <text x="540" y="250" text-anchor="middle" font-size="70">⏱</text>
+  <text x="540" y="360" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="bold" fill="#fff">Помодоро-таймер</text>
+
+  <!-- Timer display -->
+  <g transform="translate(540, 580)">
+    <circle cx="0" cy="0" r="180" fill="none" stroke="#FF6B6B" stroke-width="6" stroke-opacity="0.2"/>
+    <circle cx="0" cy="0" r="180" fill="none" stroke="#FF6B6B" stroke-width="6" stroke-dasharray="850" stroke-dashoffset="212" stroke-linecap="round" transform="rotate(-90)" filter="url(#glow)"/>
+    <text x="0" y="-20" text-anchor="middle" font-family="monospace" font-size="80" font-weight="bold" fill="#fff" filter="url(#glow)">18:42</text>
+    <text x="0" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" fill="#FF8A8A">Фокусировка</text>
+    <text x="0" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#555">Сессия 4 из 8</text>
+  </g>
+
+  <!-- Presets -->
+  <g transform="translate(540, 850)">
+    <rect x="-320" y="-25" width="180" height="50" rx="25" fill="#FF6B6B" opacity="0.2" stroke="#FF6B6B" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="-230" y="8" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#FF8A8A">25 мин фокус</text>
+    <rect x="-110" y="-25" width="220" height="50" rx="25" fill="#FFB347" opacity="0.15"/>
+    <text x="0" y="8" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#FFB347">5 мин перерыв</text>
+    <rect x="130" y="-25" width="190" height="50" rx="25" fill="#00C9FF" opacity="0.15"/>
+    <text x="225" y="8" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#00C9FF">15 мин длинный</text>
+  </g>
+
+  <!-- Divider -->
+  <rect x="140" y="940" width="800" height="2" rx="1" fill="#333" opacity="0.5"/>
+
+  <!-- Notes section -->
+  <text x="540" y="1040" text-anchor="middle" font-size="70">📝</text>
+  <text x="540" y="1140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="bold" fill="#fff">Быстрые заметки</text>
+
+  <g transform="translate(80, 1200)">
+    <rect width="920" height="120" rx="22" fill="#1e1e38" stroke="#00C9FF" stroke-width="1.5" stroke-opacity="0.2"/>
+    <text x="50" y="50" font-family="system-ui, sans-serif" font-size="24" fill="#ccc">Идея для проекта: сделать API для...</text>
+    <text x="50" y="85" font-family="system-ui, sans-serif" font-size="16" fill="#555">Сегодня, 14:32</text>
+    <text x="800" y="70" font-family="system-ui, sans-serif" font-size="30" fill="#00C9FF">🎤</text>
+  </g>
+
+  <g transform="translate(80, 1340)">
+    <rect width="920" height="120" rx="22" fill="#1e1e38" stroke="#00C9FF" stroke-width="1.5" stroke-opacity="0.2"/>
+    <text x="50" y="50" font-family="system-ui, sans-serif" font-size="24" fill="#ccc">Рецепт пасты карбонара 🍝</text>
+    <text x="50" y="85" font-family="system-ui, sans-serif" font-size="16" fill="#555">Вчера, 19:15</text>
+  </g>
+
+  <text x="540" y="1560" text-anchor="middle" font-family="system-ui, sans-serif" font-size="26" fill="#00C9FF">Текст + голосовой ввод 🎙</text>
+</svg>

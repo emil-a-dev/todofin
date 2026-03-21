@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+  <circle cx="540" cy="700" r="300" fill="#6C3AE0" opacity="0.06"/>
+
+  <text x="540" y="750" text-anchor="middle" font-family="system-ui, sans-serif" font-size="100" fill="#666688">😤</text>
+  <text x="540" y="920" text-anchor="middle" font-family="system-ui, sans-serif" font-size="56" font-weight="bold" fill="#ffffff">3 приложения</text>
+  <text x="540" y="1000" text-anchor="middle" font-family="system-ui, sans-serif" font-size="56" font-weight="bold" fill="#ffffff">для задач</text>
+
+  <text x="540" y="1140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" fill="#FF6B6B">₽500/мес за подписки</text>
+  <text x="540" y="1200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" fill="#FF6B6B">и всё равно неудобно</text>
+</svg>

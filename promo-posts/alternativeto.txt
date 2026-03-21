@@ -1,0 +1,21 @@
+===== ALTERNATIVETO SUBMISSION =====
+
+URL: https://alternativeto.net/suggest/
+
+Name: Todo Budget
+URL: https://emil-a-dev.github.io/todofin/
+
+Description:
+Free Android app combining task management, budget tracking, pomodoro timer and notes in one lightweight package (9 MB). Features include task priorities, subtasks, recurring tasks, swipe gestures, income/expense tracking by category, spending limits, debt tracking, charts, home screen widget, customizable pomodoro timer, and quick notes with voice input. All data stored locally on device. No subscriptions, no in-app purchases.
+
+Platform: Android
+License: Free
+Tags: Task Manager, Budget Tracker, Pomodoro Timer, Notes, Productivity, Offline, Finance
+
+Alternative to:
+- Todoist
+- TickTick
+- Money Manager
+- Forest
+- Microsoft To-Do
+- Google Tasks

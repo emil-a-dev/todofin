@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#161630"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C3AE0"/>
+      <stop offset="100%" style="stop-color:#9B6BFF"/>
+    </linearGradient>
+    <filter id="bigGlow"><feGaussianBlur stdDeviation="25" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+
+  <!-- Dramatic circles -->
+  <circle cx="540" cy="960" r="600" fill="#6C3AE0" opacity="0.03"/>
+  <circle cx="540" cy="960" r="450" fill="#6C3AE0" opacity="0.04"/>
+  <circle cx="540" cy="960" r="300" fill="#6C3AE0" opacity="0.05"/>
+
+  <!-- Feature emojis floating -->
+  <text x="200" y="350" font-size="60" opacity="0.3">✅</text>
+  <text x="800" y="400" font-size="55" opacity="0.3">💰</text>
+  <text x="250" y="1500" font-size="50" opacity="0.3">⏱</text>
+  <text x="850" y="1550" font-size="55" opacity="0.3">📝</text>
+
+  <!-- Main title -->
+  <text x="540" y="680" text-anchor="middle" font-family="system-ui, sans-serif" font-size="100" font-weight="bold" fill="#fff" filter="url(#bigGlow)" letter-spacing="-3">Todo Budget</text>
+
+  <text x="540" y="780" text-anchor="middle" font-family="system-ui, sans-serif" font-size="38" fill="#8888aa">4 приложения в одном. 9 МБ.</text>
+
+  <!-- FREE badge glowing -->
+  <g transform="translate(540, 900)">
+    <rect x="-160" y="-48" width="320" height="96" rx="48" fill="#00E5A0" opacity="0.12" stroke="#00E5A0" stroke-width="2.5" stroke-opacity="0.5"/>
+    <text x="0" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="bold" fill="#00E5A0" filter="url(#glow)">БЕСПЛАТНО</text>
+  </g>
+
+  <!-- CTA Button -->
+  <g transform="translate(540, 1100)">
+    <rect x="-280" y="-48" width="560" height="96" rx="48" fill="url(#purple)" filter="url(#glow)"/>
+    <text x="0" y="16" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="bold" fill="#fff">📲 Скачать в RuStore</text>
+  </g>
+
+  <!-- Website -->
+  <g transform="translate(540, 1260)">
+    <rect x="-280" y="-42" width="560" height="84" rx="42" fill="#1e1e38" stroke="#444" stroke-width="1.5"/>
+    <text x="0" y="12" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" fill="#00C9FF">🌐 emil-a-dev.github.io/todofin</text>
+  </g>
+
+  <!-- Bottom text -->
+  <text x="540" y="1450" text-anchor="middle" font-family="system-ui, sans-serif" font-size="26" fill="#444466">Ссылка в описании профиля ↓</text>
+
+  <!-- Mini features row -->
+  <g transform="translate(540, 1600)">
+    <text x="-300" y="0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#555577">✅ Задачи</text>
+    <text x="-100" y="0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#555577">💰 Бюджет</text>
+    <text x="100" y="0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#555577">⏱ Помодоро</text>
+    <text x="300" y="0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#555577">📝 Заметки</text>
+  </g>
+</svg>

@@ -1,0 +1,152 @@
+Раздел: Разработка мобильных приложений / Android
+Хабы: Разработка под Android, Kotlin, Управление финансами, Productivity
+
+===== СТАТЬЯ ДЛЯ HABR (Markdown) =====
+
+# Как я сделал полностью бесплатное Android-приложение для задач и финансов — и почему не взял ни копейки
+
+## Проблема
+
+Мне нужен был простой инструмент: список задач, учёт расходов и таймер для фокусировки. Казалось бы — чего проще?
+
+Но вот реальность:
+- **Todoist** — бесплатно только 5 проектов, дальше ₽359/мес
+- **TickTick** — помодоро и календарь только в Premium за ₽249/мес
+- **Money Manager** — реклама на каждом экране, ₽199 за отключение
+- **Forest** — ₽299 за приложение
+
+Итого: чтобы покрыть задачи + бюджет + таймер, нужно либо 3-4 приложения, либо платить ~₽500-800/мес.
+
+Мне показалось это абсурдным. И я решил сделать своё.
+
+## Решение: Todo Budget
+
+Одно приложение, в котором есть:
+- **Планировщик задач** — приоритеты, подзадачи, повторяющиеся задачи, свайп-жесты, напоминания, поиск
+- **Учёт финансов** — расходы/доходы по категориям, лимиты, долги, графики, виджет баланса
+- **Помодоро-таймер** — настраиваемые интервалы, статистика
+- **Заметки** — текст + голосовой ввод
+
+Полностью бесплатно. Без подписок. Без in-app покупок. Без premium-тира.
+
+## Технологии
+
+| Компонент | Технология |
+|-----------|------------|
+| Язык | Kotlin |
+| UI | Jetpack Compose + Material 3 |
+| БД | Room (SQLite) |
+| Настройки | DataStore Preferences |
+| Min SDK | 21 (Android 5.0) |
+| Target SDK | 35 (Android 15) |
+| Размер APK | 9 МБ (R8-оптимизация) |
+
+### Почему Jetpack Compose?
+
+Для соло-разработчика Compose — спасение. Вместо XML-layout + adapter + ViewHolder можно написать:
+
+```kotlin
+LazyColumn {
+    items(tasks) { task ->
+        TaskCard(
+            task = task,
+            onSwipeComplete = { viewModel.completeTask(it) },
+            onSwipeDelete = { viewModel.deleteTask(it) }
+        )
+    }
+}
+```
+
+Это и список, и свайпы, и анимации. В XML это было бы 3 файла и 200 строк.
+
+### R8 и уменьшение APK
+
+Исходный APK весил 18 МБ. После настройки R8:
+
+```groovy
+buildTypes {
+    release {
+        minifyEnabled true
+        shrinkResources true
+        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+}
+```
+
+APK уменьшился до 9 МБ — ровно в 2 раза.
+
+### Room и локальное хранение
+
+Все данные хранятся локально. Ничего не уходит на серверы. База данных зашифрована.
+
+```kotlin
+@Database(
+    entities = [Task::class, Expense::class, Income::class, 
+                Note::class, Debt::class, BudgetLimit::class,
+                FinancialSnapshot::class, PomodoroSession::class],
+    version = ...
+)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun taskDao(): TaskDao
+    abstract fun expenseDao(): ExpenseDao
+    // ...
+}
+```
+
+8 сущностей, 8 DAO, все связи через Flow для реактивного UI.
+
+## Архитектура
+
+```
+app/src/main/java/ru/todobudget/todo/
+├── MainActivity.kt              # Главный хаб
+├── TodoActivity.kt              # Задачи
+├── BudgetActivity.kt            # Бюджет
+├── ProductivityToolsActivity.kt # Помодоро
+├── NotesActivity.kt             # Заметки
+├── SettingsActivity.kt          # Настройки
+├── AppDatabase.kt               # Room БД
+├── TodoBudgetWidget.kt          # Виджет
+└── ui/theme/                    # Тема
+```
+
+Каждый экран — отдельная Activity с Compose-контентом. Да, я знаю про single-activity с Navigation Compose, но для приложения такого масштаба это было бы оверинжиниринг.
+
+## Проблемы, с которыми столкнулся
+
+### 1. Утечки памяти в виджете
+`AppWidgetProvider` удерживал ссылку на `Context`, что вызывало утечки. Решение — слабые ссылки и корректная очистка в `onDisabled()`.
+
+### 2. Точные будильники на Android 12+
+Начиная с API 31, `SCHEDULE_EXACT_ALARM` требует явного разрешения. Пришлось добавить fallback на `setAndAllowWhileIdle()` для устройств без этого разрешения.
+
+### 3. Помодоро-таймер в фоне
+Service + Foreground Notification, чтобы система не убивала таймер. На Xiaomi/MIUI пришлось добавить инструкцию для пользователя по отключению автоочистки.
+
+## Монетизация
+
+Баннерная реклама Яндекс (Yandex Ads) — ненавязчивый баннер внизу экрана. Никаких полноэкранных вставок. Никаких rewarded видео.
+
+Приложение остаётся полностью функциональным без какой-либо оплаты. Реклама — единственный источник дохода.
+
+## Результат
+
+- 9 МБ APK
+- 4 инструмента в одном
+- Работает оффлайн
+- Все данные локально
+- Бесплатно навсегда
+- Уже в RuStore
+
+## Ссылки
+
+- **RuStore:** https://apps.rustore.ru/app/ru.todobudget.todo
+- **Сайт:** https://emil-a-dev.github.io/todofin/
+- **APK:** https://github.com/emil-a-dev/todofin/releases/download/v3.0/TodoBudget-v3.0.apk
+
+---
+
+Буду рад вопросам и обратной связи. Если есть идеи, что добавить — пишите в комментариях.
+
+===== ТЕГИ =====
+android, kotlin, jetpack compose, room, бесплатно, задачи, бюджет, помодоро, rustore
